@@ -4,46 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Futiba Chat</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://futiba.ai/futiba@0.0.1.min.js"></script>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: #002b5e;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            background: #004080;
+            color: #ffffff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 20;
+        }
+
+        nav.active {
+            transform: translateX(0);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 20px;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 30;
+        }
+
+        main {
+            padding: 20px;
+            margin-top: 60px; /* Espaço para o menu lateral */
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        footer {
+            background: #002b5e;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .contact-message {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f4f4f4;
+            border-left: 5px solid #004080;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            main {
+                margin-top: 60px; /* Espaço para o menu lateral em telas menores */
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Futiba Chat</h1>
         <p>Seu portal de futebol com inteligência artificial</p>
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="menu" id="menu">
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
-            <a href="#download">Baixar App</a>
-        </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
+
+    <nav id="main-menu">
+        <ul>
+            <li><a href="#home" onclick="closeMenu()">Início</a></li>
+            <li><a href="#about" onclick="closeMenu()">Sobre</a></li>
+            <li><a href="#features" onclick="closeMenu()">Recursos</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contato</a></li>
+        </ul>
+    </nav>
+
     <main>
-        <section id="sobre">
+        <section id="home">
+            <h2>Bem-vindo!</h2>
+            <p>Explore nosso portal de futebol e descubra tudo o que temos a oferecer com nossa inteligência artificial.</p>
+        </section>
+        <section id="about">
             <h2>Sobre</h2>
             <p>Bem-vindo ao Futiba Chat, onde você pode conversar sobre futebol com uma inteligência artificial! Aproveite para interagir e se divertir com as discussões sobre o mundo do futebol.</p>
         </section>
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>Desenvolvido por <a href="https://www.instagram.com/ruann_hsw" target="_blank">@ruann_hsw</a></p>
-            <p>WhatsApp: +55 86 95714-400</p>
-            <p>Qualquer dúvida, entre em contato conosco.</p>
+        <section id="features">
+            <h2>Recursos</h2>
+            <p>Descubra os recursos incríveis que o Futiba Chat oferece:</p>
+            <ul>
+                <li>Discussões em tempo real sobre futebol</li>
+                <li>Análises e insights baseados em IA</li>
+                <li>Notícias atualizadas e muito mais!</li>
+            </ul>
         </section>
-        <section id="download">
-            <h2>Baixar App</h2>
-            <p>Para uma experiência completa, baixe nosso aplicativo!</p>
-            <a href="URL_DO_SEU_APP_AQUI" download>
-                <button>Baixar App</button>
-            </a>
+        <section id="contact">
+            <h2>Contato</h2>
+            <p>Desenvolvido por <strong><a href="https://instagram.com/ruann_hsw" target="_blank">@ruann_hsw</a></strong></p>
+            <p>WhatsApp: <a href="https://wa.me/558695714400" target="_blank">+55 86 95714-400</a></p>
+            <p class="contact-message">Qualquer dúvida, entre em contato conosco!</p>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 Futiba Chat. Todos os direitos reservados.</p>
+        <p>&copy; <span id="year"></span> Futiba Chat. Todos os direitos reservados.</p>
     </footer>
-    <script src="https://futiba.ai/futiba@0.0.1.min.js"></script>
-    <script src="script.js"></script>
+
+    <script>
+        // Atualiza o ano no rodapé
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Inicializa o chat Futiba
+        FUTIBA.init({
+            apiKey: "I2TRxJFpb8wFt9nNNPrk"
+        });
+
+        // Função para alternar a visibilidade do menu
+        function toggleMenu() {
+            document.getElementById('main-menu').classList.toggle('active');
+        }
+
+        // Função para fechar o menu
+        function closeMenu() {
+            document.getElementById('main-menu').classList.remove('active');
+        }
+    </script>
 </body>
 </html>
