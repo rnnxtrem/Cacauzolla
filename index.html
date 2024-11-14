@@ -76,6 +76,8 @@
         .mySlides {
             display: none;
             width: 100%;
+            max-width: 280px;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -106,13 +108,11 @@
         }
 
         iframe {
-            display: none;
             margin: 20px auto;
             width: 300px;
             height: 200px;
             border: none;
         }
-
     </style>
 </head>
 <body>
@@ -149,6 +149,7 @@
             <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
             <button class="next" onclick="plusSlides(1)">&#10095;</button>
         </div>
+        <iframe id="music" src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
 
     <section id="cartinha">
@@ -158,7 +159,6 @@ Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿
 Ass: Ruann o seu eterno amor!
 Para:Cacau a mulher da minha vida</p>
         <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
-        <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
 
     <footer>
@@ -191,13 +191,13 @@ Para:Cacau a mulher da minha vida</p>
         function mostrarCartinha() {
             document.getElementById("cartinha").style.display = "block";
             document.getElementById("lembrancas").style.display = "none";
-            document.querySelector("iframe").style.display = "block";
+            document.getElementById("music").style.display = "none";
         }
 
         function mostrarLembrancas() {
             document.getElementById("lembrancas").style.display = "block";
             document.getElementById("cartinha").style.display = "none";
-            document.querySelector("iframe").style.display = "none";
+            document.getElementById("music").style.display = "block";
         }
 
         function plusSlides(n) {
