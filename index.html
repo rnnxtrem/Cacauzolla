@@ -75,13 +75,6 @@
             padding: 20px;
         }
 
-        .slideshow-container {
-            position: relative;
-            max-width: 300px;
-            margin: 20px auto;
-            text-align: center;
-        }
-
         .polaroid {
             background-color: white;
             padding: 10px 10px 30px 10px;
@@ -99,10 +92,27 @@
             max-width: 180px;
         }
 
-        .polaroid p {
-            margin: 10px 0 0;
-            font-size: 0.9rem;
-            color: #777;
+        #nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .nav-button {
+            padding: 8px 16px;
+            font-size: 1rem;
+            color: #ff4d88;
+            border: 2px solid #ff4d88;
+            border-radius: 5px;
+            background-color: #ffe6f2;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #ff4d88;
+            color: white;
         }
 
         #cartinha {
@@ -142,20 +152,21 @@
     </nav>
 
     <section id="lembrancas">
-        <p>Este site é um pedacinho do meu coração, criado especialmente para você, meu amor. Cada detalhe é para te fazer sorrir e lembrar o quanto você é especial. 😻🤌🏿🙃🫶🏿😋😝</p>
+        <p>Este site é um pedacinho do meu coração, criado especialmente para você, meu amor.</p>
         <div class="slideshow-container">
             <div class="polaroid">
-                <img src="https://i.postimg.cc/0zfgyd4p/9a424354ced8ee7002a2c066517d81e0-0.jpg" alt="Foto 1">
-                <p>Primeira foto juntos</p>
+                <img id="foto-atual" src="https://i.postimg.cc/0zfgyd4p/9a424354ced8ee7002a2c066517d81e0-0.jpg" alt="Foto Polaroid">
             </div>
-            <!-- Outras fotos -->
         </div>
-        <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
+        <div id="nav-buttons">
+            <button class="nav-button" id="prev-btn">Anterior</button>
+            <button class="nav-button" id="next-btn">Próximo</button>
+        </div>
     </section>
 
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
-        <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente!...</p>
+        <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar...</p>
         <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
         <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
@@ -165,6 +176,21 @@
     </footer>
 
     <script>
+        const fotos = [
+            "https://i.postimg.cc/0zfgyd4p/9a424354ced8ee7002a2c066517d81e0-0.jpg",
+            "https://i.postimg.cc/948vGXC0/IMG-20240929-WA0027.jpg",
+            "https://i.postimg.cc/K4gdMyVc/IMG-20240708-171854-142.webp",
+            "https://i.postimg.cc/Zv32tr3v/IMG-20240815-173215-695.webp",
+            "https://i.postimg.cc/mzKJ5dcG/IMG-20240928-194934-975.webp",
+            "https://i.postimg.cc/zby4pmGj/IMG-20240928-210219-067.webp",
+            "https://i.postimg.cc/LnKGkbKt/IMG-20240928-210332.jpg",
+            "https://i.postimg.cc/SXNB2Y0H/IMG-20241027-175048-489.webp",
+            "https://i.postimg.cc/dhvPFS5s/IMG-20241027-175230-143.webp",
+            "https://i.postimg.cc/yk04wzXp/retouch-2024102719193638.jpg"
+        ];
+
+        let fotoIndex = 0;
+
         document.getElementById("lembrancas-btn").addEventListener("click", function() {
             document.getElementById("lembrancas").style.display = "block";
             document.getElementById("cartinha").style.display = "none";
@@ -174,6 +200,22 @@
             document.getElementById("lembrancas").style.display = "none";
             document.getElementById("cartinha").style.display = "block";
         });
+
+        function mostrarFoto() {
+            document.getElementById("foto-atual").src = fotos[fotoIndex];
+        }
+
+        document.getElementById("prev-btn").addEventListener("click", function() {
+            fotoIndex = (fotoIndex > 0) ? fotoIndex - 1 : fotos.length - 1;
+            mostrarFoto();
+        });
+
+        document.getElementById("next-btn").addEventListener("click", function() {
+            fotoIndex = (fotoIndex < fotos.length - 1) ? fotoIndex + 1 : 0;
+            mostrarFoto();
+        });
+
+        mostrarFoto();
     </script>
 </body>
 </html>
