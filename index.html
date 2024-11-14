@@ -5,14 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Amor - Cacau</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-family: 'Sacramento', cursive;
+            color: #FF6347;
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 10px auto;
+        }
+
         /* Estilo do contador */
         #contador {
             font-size: 1.5rem;
             margin-top: 20px;
             color: #FF6347;
+            text-align: center;
         }
 
         /* Estilo do slideshow */
@@ -20,16 +43,20 @@
             position: relative;
             max-width: 100%;
             margin: auto;
+            margin-top: 30px;
         }
 
         .mySlides {
             display: none;
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
         }
 
-        /* Imagem do slideshow */
         .mySlides img {
             width: 100%;
             height: auto;
+            border-radius: 10px;
         }
 
         /* Setinhas de navegação */
@@ -45,22 +72,64 @@
             cursor: pointer;
             border-radius: 50%;
             user-select: none;
+            transform: translateY(-50%);
         }
 
         .prev {
             left: 0;
-            transform: translateY(-50%);
         }
 
         .next {
             right: 0;
-            transform: translateY(-50%);
+        }
+
+        /* Cartinha */
+        #cartinha {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Música */
+        iframe {
+            display: block;
+            margin: 30px auto;
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+        }
+
+        /* Estilo do rodapé */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #888;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #FF6347;
         }
     </style>
 </head>
 <body>
 
-    <!-- Texto de boas-vindas (Texto 1) -->
     <header>
         <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
         <p>Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
@@ -74,7 +143,7 @@
         </ul>
     </nav>
 
-    <!-- Contador do tempo juntos -->
+    <!-- Contador de tempo juntos -->
     <div id="contador"></div>
 
     <!-- Slideshow de fotos -->
@@ -94,7 +163,7 @@
     </section>
 
     <!-- Cartinha -->
-    <section id="cartinha" style="display:none;">
+    <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
         <p>Minha querida Cacau, com todo meu amor e carinho, te escrevo estas palavras para expressar o quanto você significa para mim. Desde o momento que nos encontramos, minha vida se tornou muito mais colorida, alegre e cheia de razão. Cada sorriso seu me faz sentir o quanto estou abençoado por te ter ao meu lado. Te amo de um jeito que palavras não conseguem traduzir, e sou imensamente grato por você ser quem é. Com todo meu amor, sempre.</p>
     </section>
@@ -102,7 +171,7 @@
     <!-- Música -->
     <section>
         <p>A música que escolhi para você:</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/kPa7bsKwL-c?si=YbHPBxz10e3gf_tG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/kPa7bsKwL-c?si=YbHPBxz10e3gf_tG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
 
     <!-- Rodapé -->
