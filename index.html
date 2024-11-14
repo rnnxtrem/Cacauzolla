@@ -68,7 +68,7 @@
 
         .slideshow-container {
             position: relative;
-            max-width: 600px;
+            max-width: 400px;
             margin: 20px auto;
             text-align: center;
         }
@@ -76,13 +76,16 @@
         .mySlides {
             display: none;
             width: 100%;
+            max-width: 300px;
             border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin: auto;
         }
 
         .prev, .next {
             position: absolute;
             top: 50%;
-            padding: 16px;
+            padding: 10px;
             color: white;
             font-weight: bold;
             font-size: 18px;
@@ -162,13 +165,18 @@
     <!-- Cartinha -->
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
-        <p>Cacau, eu te amo intensamente, mais do que palavras possam expressar. Meu amor por ti será eterno! Eu amo cada detalhe seu, desde os mais simples aos mais intensos. Amo seus cachinhos, seu sorriso lindo, e muito mais. Espero um dia conseguir fazer você a mulher mais feliz do MUNDO! Quero conquistar tudo ao seu lado!</p>
+        <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhes seus, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk
+Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿 
+Ass: Ruann o seu eterno amor!
+Para:Cacau a mulher da minha vida</p>
         <p><strong>Ass: Ruann, o seu eterno amor!<br>Para: Cacau, a mulher da minha vida</strong></p>
         <p><strong>“Tu és toda formosa, meu amor, e em ti não há mancha.” – Cânticos 4:7</strong></p>
     </section>
 
     <!-- Música -->
-    <iframe src="https://youtu.be/zgaCZOQCpp8?si=p_5qN0YcxxQg_Lbb" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <audio autoplay loop>
+        <source src="https://example.com/path/to/your/music.mp3" type="audio/mpeg">
+    </audio>
 
     <footer>
         <p>Feito com muito amor pelo amor de sua vida 💖</p>
@@ -186,18 +194,22 @@
         iniciarContador();
 
         // Slideshow de fotos
-        let slideIndex = 0;
-        function showSlides() {
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
             let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
             for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1; }
             slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 3000); // Altere para ajustar o tempo
         }
-        showSlides();
 
         // Função para exibir a cartinha
         function mostrarCartinha() {
