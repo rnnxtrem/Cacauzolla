@@ -31,6 +31,10 @@
             color: #ff4d88;
             font-weight: bold;
             margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
         }
 
         #frases-biblicas {
@@ -168,14 +172,14 @@
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
         <audio controls autoplay loop>
-            <source src="https://www.youtube.com/watch?v=kPa7bsKwL-c&si=nSGAuh2XVkGH7Xeb" type="audio/mp3">
+            <source src="https://www.youtube.com/watch?v=P8iZDiNFGj8?si=-mZaI7C9wW57EAj6" type="audio/mp3">
             Seu navegador não suporta o elemento audio.
         </audio>
     </section>
 
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
-        <p><!-- Você pode colocar o texto que desejar aqui --></p>
+        <p><!-- Coloque o texto que você desejar aqui --></p>
         <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
 
@@ -224,23 +228,16 @@
         }
 
         function atualizarContador() {
-            const dataInicio = new Date('2024-07-10T00:00:00');
-            const hoje = new Date();
-            const diff = hoje - dataInicio;
-            
-            const segundos = Math.floor(diff / 1000);
-            const minutos = Math.floor(segundos / 60);
-            const horas = Math.floor(minutos / 60);
-            const dias =
-Math.floor(horas / 24);
-            const horasRestantes = horas % 24;
-            const minutosRestantes = minutos % 60;
-            const segundosRestantes = segundos % 60;
-
-            document.getElementById("contador").innerText = `Tempo desde o início: ${dias} dias, ${horasRestantes} horas, ${minutosRestantes} minutos, ${segundosRestantes} segundos`;
+            const dataInicio = new Date('2024-07-10'); // Data do início do relacionamento
+            const agora = new Date();
+            const tempoPassado = agora - dataInicio;
+            const diasPassados = Math.floor(tempoPassado / (1000 * 60 * 60 * 24));
+            document.getElementById("contador").innerText = `${diasPassados} dias juntos!`;
         }
 
-        setInterval(atualizarContador, 1000);
+        setInterval(atualizarContador, 1000); // Atualiza o contador a cada segundo
+
+        // Inicializa o contador assim que a página carrega
         atualizarContador();
     </script>
 </body>
