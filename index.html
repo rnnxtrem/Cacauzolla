@@ -6,7 +6,101 @@
     <title>Meu Amor - Cacau</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
     <style>
-        /* Estilos CSS permanecem os mesmos */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #fbe8e7; /* cor de fundo */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff9999; /* cor de fundo do cabeçalho */
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            font-family: 'Sacramento', cursive;
+            margin: 0;
+        }
+
+        #contador {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        #frases-biblicas p {
+            font-style: italic;
+            color: #5a5a5a;
+        }
+
+        nav {
+            background-color: #ffcccc; /* cor do fundo do menu */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            display: none; /* todas as seções ficam escondidas por padrão */
+            padding: 20px;
+            text-align: center;
+        }
+
+        #lembrancas {
+            display: block; /* exibir a seção lembranças por padrão */
+        }
+
+        .polaroid img {
+            width: 300px;
+            height: auto;
+            border: 10px solid #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #nav-buttons {
+            margin-top: 20px;
+        }
+
+        .nav-button {
+            background-color: #ff9999; /* cor dos botões */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #ff9999;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -39,7 +133,6 @@
             <button class="nav-button" id="prev-btn">Anterior</button>
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
-        <!-- Música na seção de Lembranças -->
         <audio id="musica-lembrancas" loop>
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
             Seu navegador não suporta o elemento audio.
@@ -51,7 +144,6 @@
         <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar...</p>
         <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
         <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
-        <!-- Música na seção de Carta -->
         <audio id="musica-carta" loop>
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
             Seu navegador não suporta o elemento audio.
