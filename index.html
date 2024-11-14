@@ -15,9 +15,8 @@
             overflow-x: hidden;
         }
 
-        header {
+        header, footer {
             text-align: center;
-            margin-top: 20px;
             padding: 20px;
         }
 
@@ -27,11 +26,19 @@
             font-size: 3.5rem;
         }
 
-        p {
+        #contador {
+            font-size: 1.8rem;
+            color: #ff4d88;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        #frases-biblicas {
             font-size: 1.2rem;
             color: #555;
-            max-width: 700px;
             margin: 10px auto;
+            max-width: 700px;
+            text-align: center;
             line-height: 1.6;
         }
 
@@ -51,24 +58,17 @@
             text-decoration: none;
             font-size: 1.5rem;
             color: #ff4d88;
+            cursor: pointer;
         }
 
-        #contador {
-            font-size: 1.8rem;
-            color: #ff4d88;
-            font-weight: bold;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        #lembrancas {
+        #lembrancas, #cartinha {
             text-align: center;
             padding: 20px;
         }
 
         .slideshow-container {
             position: relative;
-            max-width: 400px;
+            max-width: 300px;
             margin: 20px auto;
             text-align: center;
         }
@@ -76,10 +76,8 @@
         .mySlides {
             display: none;
             width: 100%;
-            max-width: 300px;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .prev, .next {
@@ -88,7 +86,6 @@
             padding: 10px;
             color: white;
             font-weight: bold;
-            font-size: 18px;
             background-color: rgba(0, 0, 0, 0.5);
             cursor: pointer;
             border-radius: 50%;
@@ -96,94 +93,79 @@
             transition: all 0.3s ease;
         }
 
-        .prev {
-            left: 0;
-        }
-
-        .next {
-            right: 0;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1rem;
-            color: #888;
-            padding: 10px;
-        }
+        .prev { left: 0; }
+        .next { right: 0; }
 
         #cartinha {
             display: none;
-            text-align: center;
             background-color: #fff;
             padding: 20px;
             margin: 20px;
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
+
+        iframe {
+            display: none;
+            margin: 20px auto;
+            width: 300px;
+            height: 200px;
+            border: none;
+        }
+
     </style>
 </head>
 <body>
 
     <header>
         <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
-        <p>Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
+        <div id="contador"></div>
+        <div id="frases-biblicas">
+            <p>"Tu és toda formosa, meu amor, e em ti não há mancha." – Cânticos 4:7</p>
+            <p>"Onde quer que fores, irei; onde quer que pousares, ali pousarei eu." – Rute 1:16</p>
+            <p>"O amor tudo sofre, tudo crê, tudo espera, tudo suporta." – 1 Coríntios 13:7</p>
+        </div>
     </header>
 
-    <!-- Contador de tempo juntos -->
-    <div id="contador"></div>
-
-    <!-- Menu de navegação -->
     <nav>
         <ul>
-            <li><a href="#lembrancas">Lembranças</a></li>
-            <li><a href="#cartinha" onclick="mostrarCartinha()">Cartinha</a></li>
+            <li><a onclick="mostrarLembrancas()">Lembranças</a></li>
+            <li><a onclick="mostrarCartinha()">Carta</a></li>
         </ul>
     </nav>
 
-    <!-- Texto de lembranças -->
     <section id="lembrancas">
-        <p>Este site é um pedacinho do meu coração, criado especialmente para você, meu amor. Cada detalhe, cada palavra, é uma forma de expressar o quanto você significa para mim. Aqui, tudo é pensado para te fazer sorrir e lembrar o quanto você é única e especial na minha vida. Te amo, e isso é só o começo da nossa história. 😻🤌🏿🙃🫶🏿😋😝</p>
+        <p>Este site é um pedacinho do meu coração, criado especialmente para você, meu amor. Cada detalhe é para te fazer sorrir e lembrar o quanto você é especial. 😻🤌🏿🙃🫶🏿😋😝</p>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img src="https://i.im.ge/2024/11/14/keXqNh.1000343068.jpeg" alt="Foto 1">
+            </div>
+            <div class="mySlides">
+                <img src="https://i.im.ge/2024/11/14/keX2JX.1000343071.jpeg" alt="Foto 2">
+            </div>
+            <div class="mySlides">
+                <img src="https://i.im.ge/2024/11/14/keX1E9.1000343075.webp" alt="Foto 3">
+            </div>
+            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        </div>
     </section>
 
-    <!-- Slideshow de fotos -->
-    <div class="slideshow-container">
-        <div class="mySlides">
-            <img src="https://i.im.ge/2024/11/14/keXqNh.1000343068.jpeg" alt="Foto 1">
-        </div>
-        <div class="mySlides">
-            <img src="https://i.im.ge/2024/11/14/keX2JX.1000343071.jpeg" alt="Foto 2">
-        </div>
-        <div class="mySlides">
-            <img src="https://i.im.ge/2024/11/14/keX1E9.1000343075.webp" alt="Foto 3">
-        </div>
-        <!-- Botões de navegação -->
-        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-        <button class="next" onclick="plusSlides(1)">&#10095;</button>
-    </div>
-
-    <!-- Cartinha -->
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
         <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhes seus, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk
 Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿 
 Ass: Ruann o seu eterno amor!
 Para:Cacau a mulher da minha vida</p>
-        <p><strong>Ass: Ruann, o seu eterno amor!<br>Para: Cacau, a mulher da minha vida</strong></p>
-        <p><strong>“Tu és toda formosa, meu amor, e em ti não há mancha.” – Cânticos 4:7</strong></p>
+        <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
+        <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
 
-    <!-- Música -->
-    <audio autoplay loop>
-        <source src="https://example.com/path/to/your/music.mp3" type="audio/mpeg">
-    </audio>
-
     <footer>
-        <p>Feito com muito amor pelo amor de sua vida 💖</p>
+        <p>Feito com muito amor e carinho pelo amor de sua vida 💖</p>
     </footer>
 
     <script>
-        // Função do contador de tempo juntos
         function iniciarContador() {
             const dataInicio = new Date("2024-07-10");
             const agora = new Date();
@@ -193,30 +175,35 @@ Para:Cacau a mulher da minha vida</p>
         }
         iniciarContador();
 
-        // Slideshow de fotos
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
+        let slideIndex = 0;
+        function showSlides() {
             let slides = document.getElementsByClassName("mySlides");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
             for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
             slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+        showSlides();
+
+        function mostrarCartinha() {
+            document.getElementById("cartinha").style.display = "block";
+            document.getElementById("lembrancas").style.display = "none";
+            document.querySelector("iframe").style.display = "block";
         }
 
-        // Função para exibir a cartinha
-        function mostrarCartinha() {
-            const cartinha = document.getElementById("cartinha");
-            cartinha.style.display = cartinha.style.display === "none" ? "block" : "none";
+        function mostrarLembrancas() {
+            document.getElementById("lembrancas").style.display = "block";
+            document.getElementById("cartinha").style.display = "none";
+            document.querySelector("iframe").style.display = "none";
+        }
+
+        function plusSlides(n) {
+            slideIndex += n - 1;
+            showSlides();
         }
     </script>
-
 </body>
 </html>
