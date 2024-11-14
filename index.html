@@ -6,7 +6,7 @@
     <title>Meu Amor - Cacau</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
     <style>
-        /* Seu código de estilo existente */
+        /* Estilos CSS permanecem os mesmos */
     </style>
 </head>
 <body>
@@ -40,14 +40,22 @@
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
         <!-- Música na seção de Lembranças -->
-        <iframe src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&mute=0" width="300" height="200" allow="autoplay; encrypted-media"></iframe>
+        <audio id="musica-lembrancas" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento audio.
+        </audio>
     </section>
 
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
         <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar...</p>
         <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
-        <iframe src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&mute=0" width="300" height="200" allow="autoplay; encrypted-media"></iframe>
+        <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
+        <!-- Música na seção de Carta -->
+        <audio id="musica-carta" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento audio.
+        </audio>
     </section>
 
     <footer>
@@ -70,31 +78,43 @@
 
         let fotoIndex = 0;
 
-        document.getElementById("lembrancas-btn").addEventListener("click", function() {
-            document.getElementById("lembrancas").style.display = "block";
-            document.getElementById("cartinha").style.display = "none";
-        });
-
-        document.getElementById("carta-btn").addEventListener("click", function() {
-            document.getElementById("lembrancas").style.display = "none";
-            document.getElementById("cartinha").style.display = "block";
-        });
+        const lembrancasBtn = document.getElementById("lembrancas-btn");
+        const cartaBtn = document.getElementById("carta-btn");
+        const lembrancasSection = document.getElementById("lembrancas");
+        const cartinhaSection = document.getElementById("cartinha");
+        const musicaLembrancas = document.getElementById("musica-lembrancas");
+        const musicaCarta = document.getElementById("musica-carta");
 
         function mostrarFoto() {
             document.getElementById("foto-atual").src = fotos[fotoIndex];
         }
 
         document.getElementById("prev-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex > 0) ? fotoIndex - 1 : fotos.length - 1;
+            fotoIndex = (fotoIndex === 0) ? fotos.length - 1 : fotoIndex - 1;
             mostrarFoto();
         });
 
         document.getElementById("next-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex < fotos.length - 1) ? fotoIndex + 1 : 0;
+            fotoIndex = (fotoIndex + 1) % fotos.length;
             mostrarFoto();
         });
 
-        mostrarFoto();
+        lembrancasBtn.addEventListener("click", function() {
+            lembrancasSection.style.display = "block";
+            cartinhaSection.style.display = "none";
+            musicaLembrancas.play();
+            musicaCarta.pause();
+            musicaCarta.currentTime = 0;
+        });
+
+        cartaBtn.addEventListener("click", function() {
+            lembrancasSection.style.display = "none";
+            cartinhaSection.style.display = "block";
+            musicaCarta.play();
+            musicaLembrancas.pause();
+            musicaLembrancas.currentTime = 0;
+        });
     </script>
+
 </body>
 </html>
