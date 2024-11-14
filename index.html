@@ -3,63 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Amor - Cacau</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Site de Lembranças - Para Cacau</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f7;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #f1a7c2;
+            padding: 20px;
+            border-bottom: 2px solid #ff70a6;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        section {
+            margin: 20px 0;
+            padding: 10px;
+        }
+        #lembrancas img {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #lembrancas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .foto-container {
+            margin: 20px;
+        }
+        button {
+            background-color: #ff70a6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4081;
+        }
+        audio {
+            margin-top: 20px;
+        }
+        .texto {
+            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #f1a7c2;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Texto de boas-vindas (Texto 1) -->
     <header>
-        <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
-        <p>Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
+        <h1>Para a minha Gatinha, Cacau</h1>
     </header>
-
-    <!-- Menu de navegação -->
-    <nav>
-        <ul>
-            <li><a href="#lembrancas">Lembranças</a></li>
-            <li><a href="#cartinha">Cartinha</a></li>
-        </ul>
-    </nav>
+    <section id="mensagem">
+        <p class="texto">Para a minha gatinha, meu amorzinho, a razão do meu sorriso. Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
+        <button onclick="mostrarLembrancas()">Lembranças</button>
+        <button onclick="mostrarCartinha()">Cartinha</button>
+    </section>
 
     <!-- Seção de Lembranças -->
-    <section id="lembrancas">
+    <section id="lembrancas" style="display:none;">
         <h2>Lembranças</h2>
         <div class="foto-container">
-            <!-- Substituindo pelos links das fotos que você enviou -->
-            <img src="https://drive.google.com/uc?id=13B5joJHb11KKdSCl6QyPdnzrJ0mHHobP" alt="Foto de Lembrança 1">
-            <img src="https://drive.google.com/uc?id=136l95dsEb9KjYshsjsGdGUPhgmR1fpM5" alt="Foto de Lembrança 2">
-            <img src="https://drive.google.com/uc?id=133bGhAYe4zzrzBNGlohSN5gRFPoe-JUE" alt="Foto de Lembrança 3">
-            <img src="https://drive.google.com/uc?id=1328P_BJWp74hb-m6cgxz5y9P41td9blV" alt="Foto de Lembrança 4">
-            <img src="https://drive.google.com/uc?id=13-Pt_OP_2JquR5OdVnlgtXin0XabARrS" alt="Foto de Lembrança 5">
-            <img src="https://drive.google.com/uc?id=12rlQX_UzUn80xC5TpxweuTEssYepWXM1" alt="Foto de Lembrança 6">
-            <img src="https://drive.google.com/uc?id=138al5wgG8AqdiHyUSVLNXbr4mHkqrgs0" alt="Foto de Lembrança 7">
-            <img src="https://drive.google.com/uc?id=1316PcmKsGZjk_zV0I_jcY6xnJrGRm_nt" alt="Foto de Lembrança 8">
-            <img src="https://drive.google.com/uc?id=12pM5_VagbWuk5LXN0Xga6yYqzE51pJnr" alt="Foto de Lembrança 9">
-            <img src="https://drive.google.com/uc?id=1361ThQnbYrb_q45ACrq9OFZd_GUiIsYx" alt="Foto de Lembrança 10">
+            <img src="https://drive.google.com/uc?export=view&id=13B5joJHb11KKdSCl6QyPdnzrJ0mHHobP" alt="Foto de Lembrança 1">
+            <img src="https://drive.google.com/uc?export=view&id=136l95dsEb9KjYshsjsGdGUPhgmR1fpM5" alt="Foto de Lembrança 2">
+            <img src="https://drive.google.com/uc?export=view&id=133bGhAYe4zzrzBNGlohSN5gRFPoe-JUE" alt="Foto de Lembrança 3">
+            <img src="https://drive.google.com/uc?export=view&id=1328P_BJWp74hb-m6cgxz5y9P41td9blV" alt="Foto de Lembrança 4">
+            <img src="https://drive.google.com/uc?export=view&id=13-Pt_OP_2JquR5OdVnlgtXin0XabARrS" alt="Foto de Lembrança 5">
+            <img src="https://drive.google.com/uc?export=view&id=12rlQX_UzUn80xC5TpxweuTEssYepWXM1" alt="Foto de Lembrança 6">
+            <img src="https://drive.google.com/uc?export=view&id=138al5wgG8AqdiHyUSVLNXbr4mHkqrgs0" alt="Foto de Lembrança 7">
+            <img src="https://drive.google.com/uc?export=view&id=1316PcmKsGZjk_zV0I_jcY6xnJrGRm_nt" alt="Foto de Lembrança 8">
+            <img src="https://drive.google.com/uc?export=view&id=12pM5_VagbWuk5LXN0Xga6yYqzE51pJnr" alt="Foto de Lembrança 9">
+            <img src="https://drive.google.com/uc?export=view&id=1361ThQnbYrb_q45ACrq9OFZd_GUiIsYx" alt="Foto de Lembrança 10">
         </div>
-        <audio controls>
-            <!-- Link para a música -->
-            <source src="https://drive.google.com/uc?id=13GGRyPe5u4zDtrv-qzeG4WX-VhLbPPo6" type="audio/mp3">
-            Seu navegador não suporta o áudio.
-        </audio>
     </section>
 
     <!-- Seção da Cartinha -->
-    <section id="cartinha">
+    <section id="cartinha" style="display:none;">
         <h2>Cartinha para Cacau</h2>
-        <p>
-            Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhe seu, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk
-            Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿
+        <p class="texto">
+            Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhe seu, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿
         </p>
-        <p>Ass: Ruann o seu eterno amor! <br> Para: Cacau a mulher da minha vida</p>
+        <p><strong>Ass: Ruann o seu eterno amor!</strong></p>
+        <p><strong>Para: Cacau a mulher da minha vida</strong></p>
+        <p><i>Feito com muito amor por Ruann 💖</i></p>
     </section>
 
-    <!-- Rodapé -->
+    <!-- Música -->
+    <audio controls>
+        <source src="https://drive.google.com/uc?export=view&id=13GGRyPe5u4zDtrv-qzeG4WX-VhLbPPo6" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
     <footer>
-        <p>Feito com muito amor por Ruann 💖</p>
+        <p>Feito com muito amor por Ruann</p>
     </footer>
 
+    <script>
+        function mostrarLembrancas() {
+            document.getElementById("lembrancas").style.display = "block";
+            document.getElementById("cartinha").style.display = "none";
+            document.getElementById("mensagem").style.display = "none";
+        }
+
+        function mostrarCartinha() {
+            document.getElementById("lembrancas").style.display = "none";
+            document.getElementById("cartinha").style.display = "block";
+            document.getElementById("mensagem").style.display = "none";
+        }
+    </script>
 </body>
 </html>
