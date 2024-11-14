@@ -3,136 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site de Lembranças - Para Cacau</title>
+    <title>Meu Amor, Minha Cacau 💖</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #ffe6f7;
-            color: #fff;
+            color: #333;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
-            background-color: #f1a7c2;
-            padding: 20px;
-            border-bottom: 2px solid #ff70a6;
+            background-color: #f4a6c4;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 3px solid #ff7f9d;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            color: white;
+            font-size: 24px;
         }
-        section {
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .menu {
             margin: 20px 0;
-            padding: 10px;
         }
-        #lembrancas img {
-            width: 150px;
-            height: 150px;
+        .menu button {
+            background-color: #ff7f9d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
             margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        #lembrancas {
+        .menu button:hover {
+            background-color: #f45d7d;
+        }
+        .gallery {
             display: flex;
-            flex-wrap: wrap;
+            overflow-x: hidden;
+            margin: 20px 0;
+            width: 100%;
             justify-content: center;
         }
-        .foto-container {
-            margin: 20px;
+        .gallery img {
+            width: 80%;
+            max-width: 500px;
+            margin: 0 10px;
+            border-radius: 10px;
         }
-        button {
-            background-color: #ff70a6;
-            color: white;
-            padding: 10px 20px;
+        .gallery-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .gallery-buttons button {
+            background-color: #f4a6c4;
             border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            margin: 10px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #ff4081;
-        }
-        audio {
-            margin-top: 20px;
-        }
-        .texto {
-            margin: 20px 0;
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-        footer {
-            background-color: #f1a7c2;
-            color: #fff;
+            color: white;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+        .countdown {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #ff7f9d;
+        }
+        .countdown span {
+            font-size: 18px;
+            color: #f45d7d;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Para a minha Gatinha, Cacau</h1>
-    </header>
-    <section id="mensagem">
-        <p class="texto">Para a minha gatinha, meu amorzinho, a razão do meu sorriso. Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
-        <button onclick="mostrarLembrancas()">Lembranças</button>
-        <button onclick="mostrarCartinha()">Cartinha</button>
-    </section>
 
-    <!-- Seção de Lembranças -->
-    <section id="lembrancas" style="display:none;">
-        <h2>Lembranças</h2>
-        <div class="foto-container">
-            <img src="https://drive.google.com/uc?export=view&id=13B5joJHb11KKdSCl6QyPdnzrJ0mHHobP" alt="Foto de Lembrança 1">
-            <img src="https://drive.google.com/uc?export=view&id=136l95dsEb9KjYshsjsGdGUPhgmR1fpM5" alt="Foto de Lembrança 2">
-            <img src="https://drive.google.com/uc?export=view&id=133bGhAYe4zzrzBNGlohSN5gRFPoe-JUE" alt="Foto de Lembrança 3">
-            <img src="https://drive.google.com/uc?export=view&id=1328P_BJWp74hb-m6cgxz5y9P41td9blV" alt="Foto de Lembrança 4">
-            <img src="https://drive.google.com/uc?export=view&id=13-Pt_OP_2JquR5OdVnlgtXin0XabARrS" alt="Foto de Lembrança 5">
-            <img src="https://drive.google.com/uc?export=view&id=12rlQX_UzUn80xC5TpxweuTEssYepWXM1" alt="Foto de Lembrança 6">
-            <img src="https://drive.google.com/uc?export=view&id=138al5wgG8AqdiHyUSVLNXbr4mHkqrgs0" alt="Foto de Lembrança 7">
-            <img src="https://drive.google.com/uc?export=view&id=1316PcmKsGZjk_zV0I_jcY6xnJrGRm_nt" alt="Foto de Lembrança 8">
-            <img src="https://drive.google.com/uc?export=view&id=12pM5_VagbWuk5LXN0Xga6yYqzE51pJnr" alt="Foto de Lembrança 9">
-            <img src="https://drive.google.com/uc?export=view&id=1361ThQnbYrb_q45ACrq9OFZd_GUiIsYx" alt="Foto de Lembrança 10">
-        </div>
-    </section>
+<header>
+    <h1>Para a minha Cacau, meu amor</h1>
+</header>
 
-    <!-- Seção da Cartinha -->
-    <section id="cartinha" style="display:none;">
-        <h2>Cartinha para Cacau</h2>
-        <p class="texto">
-            Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhe seu, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿
-        </p>
-        <p><strong>Ass: Ruann o seu eterno amor!</strong></p>
-        <p><strong>Para: Cacau a mulher da minha vida</strong></p>
-        <p><i>Feito com muito amor por Ruann 💖</i></p>
-    </section>
+<div class="content">
+    <p>Para a minha gatinha, meu amorzinho, a razão do meu sorriso. Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
 
-    <!-- Música -->
+    <div class="menu">
+        <button onclick="showGallery()">Lembranças</button>
+        <button onclick="showLetter()">Cartinha</button>
+    </div>
+
+    <div class="countdown" id="countdown"></div>
+
+    <div class="gallery" id="gallery" style="display: none;">
+        <img src="https://drive.google.com/uc?export=view&id=13B5joJHb11KKdSCl6QyPdnzrJ0mHHobP" alt="Foto 1">
+        <img src="https://drive.google.com/uc?export=view&id=136l95dsEb9KjYshsjsGdGUPhgmR1fpM5" alt="Foto 2">
+        <img src="https://drive.google.com/uc?export=view&id=133bGhAYe4zzrzBNGlohSN5gRFPoe-JUE" alt="Foto 3">
+        <img src="https://drive.google.com/uc?export=view&id=1328P_BJWp74hb-m6cgxz5y9P41td9blV" alt="Foto 4">
+        <img src="https://drive.google.com/uc?export=view&id=13-Pt_OP_2JquR5OdVnlgtXin0XabARrS" alt="Foto 5">
+        <img src="https://drive.google.com/uc?export=view&id=12rlQX_UzUn80xC5TpxweuTEssYepWXM1" alt="Foto 6">
+        <img src="https://drive.google.com/uc?export=view&id=138al5wgG8AqdiHyUSVLNXbr4mHkqrgs0" alt="Foto 7">
+        <img src="https://drive.google.com/uc?export=view&id=1316PcmKsGZjk_zV0I_jcY6xnJrGRm_nt" alt="Foto 8">
+        <img src="https://drive.google.com/uc?export=view&id=12pM5_VagbWuk5LXN0Xga6yYqzE51pJnr" alt="Foto 9">
+        <img src="https://drive.google.com/uc?export=view&id=1361ThQnbYrb_q45ACrq9OFZd_GUiIsYx" alt="Foto 10">
+    </div>
+    
+    <div class="gallery-buttons" id="gallery-buttons">
+        <button onclick="changeImage('left')">&#8592;</button>
+        <button onclick="changeImage('right')">&#8594;</button>
+    </div>
+
     <audio controls>
         <source src="https://drive.google.com/uc?export=view&id=13GGRyPe5u4zDtrv-qzeG4WX-VhLbPPo6" type="audio/mp3">
         Seu navegador não suporta o elemento de áudio.
     </audio>
+</div>
 
-    <footer>
-        <p>Feito com muito amor por Ruann</p>
-    </footer>
+<script>
+    const gallery = document.getElementById("gallery");
+    let currentImageIndex = 0;
 
-    <script>
-        function mostrarLembrancas() {
-            document.getElementById("lembrancas").style.display = "block";
-            document.getElementById("cartinha").style.display = "none";
-            document.getElementById("mensagem").style.display = "none";
+    const images = [
+        "https://drive.google.com/uc?export=view&id=13B5joJHb11KKdSCl6QyPdnzrJ0mHHobP",
+        "https://drive.google.com/uc?export=view&id=136l95dsEb9KjYshsjsGdGUPhgmR1fpM5",
+        "https://drive.google.com/uc?export=view&id=133bGhAYe4zzrzBNGlohSN5gRFPoe-JUE",
+        "https://drive.google.com/uc?export=view&id=1328P_BJWp74hb-m6cgxz5y9P41td9blV",
+        "https://drive.google.com/uc?export=view&id=13-Pt_OP_2JquR5OdVnlgtXin0XabARrS",
+        "https://drive.google.com/uc?export=view&id=12rlQX_UzUn80xC5TpxweuTEssYepWXM1",
+        "https://drive.google.com/uc?export=view&id=138al5wgG8AqdiHyUSVLNXbr4mHkqrgs0",
+        "https://drive.google.com/uc?export=view&id=1316PcmKsGZjk_zV0I_jcY6xnJrGRm_nt",
+        "https://drive.google.com/uc?export=view&id=12pM5_VagbWuk5LXN0Xga6yYqzE51pJnr",
+        "https://drive.google.com/uc?export=view&id=1361ThQnbYrb_q45ACrq9OFZd_GUiIsYx"
+    ];
+
+    function showGallery() {
+        gallery.style.display = "flex";
+        document.getElementById("gallery-buttons").style.display = "block";
+    }
+
+    function showLetter() {
+        alert("Aqui está a carta que você me pediu!");
+    }
+
+    function changeImage(direction) {
+        if (direction === 'left') {
+            currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+        } else if (direction === 'right') {
+            currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
         }
+        gallery.innerHTML = `<img src="${images[currentImageIndex]}" alt="Foto">`;
+    }
 
-        function mostrarCartinha() {
-            document.getElementById("lembrancas").style.display = "none";
-            document.getElementById("cartinha").style.display = "block";
-            document.getElementById("mensagem").style.display = "none";
-        }
-    </script>
-</body>
-</html>
+    function updateCountdown() {
+        const startDate = new Date("2024-07-10T00:00:
