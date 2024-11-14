@@ -18,7 +18,7 @@
         header {
             background-color: #f4a6c4;
             width: 100%;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
             border-bottom: 3px solid #ff7f9d;
         }
@@ -31,51 +31,6 @@
             padding: 20px;
             text-align: center;
         }
-        .menu {
-            margin: 20px 0;
-        }
-        .menu button {
-            background-color: #ff7f9d;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            margin: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .menu button:hover {
-            background-color: #f45d7d;
-        }
-        .gallery {
-            display: flex;
-            overflow-x: hidden;
-            margin: 20px 0;
-            width: 100%;
-            justify-content: center;
-        }
-        .gallery img {
-            width: 80%;
-            max-width: 500px;
-            margin: 0 10px;
-            border-radius: 10px;
-        }
-        .gallery-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .gallery-buttons button {
-            background-color: #f4a6c4;
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            margin: 0 5px;
-            font-size: 20px;
-            border-radius: 5px;
-        }
         .countdown {
             font-size: 20px;
             font-weight: bold;
@@ -85,6 +40,28 @@
         .countdown span {
             font-size: 18px;
             color: #f45d7d;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        audio {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
         }
     </style>
 </head>
@@ -97,14 +74,11 @@
 <div class="content">
     <p>Para a minha gatinha, meu amorzinho, a razão do meu sorriso. Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
 
-    <div class="menu">
-        <button onclick="showGallery()">Lembranças</button>
-        <button onclick="showLetter()">Cartinha</button>
-    </div>
-
+    <!-- Contagem Regressiva -->
     <div class="countdown" id="countdown"></div>
 
-    <div class="gallery" id="gallery" style="display: none;">
+    <!-- Galeria de Fotos -->
+    <div class="gallery" id="gallery">
         <img src="https://drive.google.com/uc?export=view&id=13B5joJHb11KKdSCl6QyPdnzrJ0mHHobP" alt="Foto 1">
         <img src="https://drive.google.com/uc?export=view&id=136l95dsEb9KjYshsjsGdGUPhgmR1fpM5" alt="Foto 2">
         <img src="https://drive.google.com/uc?export=view&id=133bGhAYe4zzrzBNGlohSN5gRFPoe-JUE" alt="Foto 3">
@@ -116,12 +90,8 @@
         <img src="https://drive.google.com/uc?export=view&id=12pM5_VagbWuk5LXN0Xga6yYqzE51pJnr" alt="Foto 9">
         <img src="https://drive.google.com/uc?export=view&id=1361ThQnbYrb_q45ACrq9OFZd_GUiIsYx" alt="Foto 10">
     </div>
-    
-    <div class="gallery-buttons" id="gallery-buttons">
-        <button onclick="changeImage('left')">&#8592;</button>
-        <button onclick="changeImage('right')">&#8594;</button>
-    </div>
 
+    <!-- Música -->
     <audio controls>
         <source src="https://drive.google.com/uc?export=view&id=13GGRyPe5u4zDtrv-qzeG4WX-VhLbPPo6" type="audio/mp3">
         Seu navegador não suporta o elemento de áudio.
@@ -129,39 +99,26 @@
 </div>
 
 <script>
-    const gallery = document.getElementById("gallery");
-    let currentImageIndex = 0;
-
-    const images = [
-        "https://drive.google.com/uc?export=view&id=13B5joJHb11KKdSCl6QyPdnzrJ0mHHobP",
-        "https://drive.google.com/uc?export=view&id=136l95dsEb9KjYshsjsGdGUPhgmR1fpM5",
-        "https://drive.google.com/uc?export=view&id=133bGhAYe4zzrzBNGlohSN5gRFPoe-JUE",
-        "https://drive.google.com/uc?export=view&id=1328P_BJWp74hb-m6cgxz5y9P41td9blV",
-        "https://drive.google.com/uc?export=view&id=13-Pt_OP_2JquR5OdVnlgtXin0XabARrS",
-        "https://drive.google.com/uc?export=view&id=12rlQX_UzUn80xC5TpxweuTEssYepWXM1",
-        "https://drive.google.com/uc?export=view&id=138al5wgG8AqdiHyUSVLNXbr4mHkqrgs0",
-        "https://drive.google.com/uc?export=view&id=1316PcmKsGZjk_zV0I_jcY6xnJrGRm_nt",
-        "https://drive.google.com/uc?export=view&id=12pM5_VagbWuk5LXN0Xga6yYqzE51pJnr",
-        "https://drive.google.com/uc?export=view&id=1361ThQnbYrb_q45ACrq9OFZd_GUiIsYx"
-    ];
-
-    function showGallery() {
-        gallery.style.display = "flex";
-        document.getElementById("gallery-buttons").style.display = "block";
-    }
-
-    function showLetter() {
-        alert("Aqui está a carta que você me pediu!");
-    }
-
-    function changeImage(direction) {
-        if (direction === 'left') {
-            currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
-        } else if (direction === 'right') {
-            currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
-        }
-        gallery.innerHTML = `<img src="${images[currentImageIndex]}" alt="Foto">`;
-    }
-
+    // Função para calcular a contagem regressiva desde o dia 10/07/2024
     function updateCountdown() {
-        const startDate = new Date("2024-07-10T00:00:
+        const startDate = new Date("2024-07-10T00:00:00");
+        const currentDate = new Date();
+        const timeDiff = currentDate - startDate;
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = `
+            <p>Contagem desde que te pedi em namoro:</p>
+            <p><span>${days}</span> dias <span>${hours}</span> horas <span>${minutes}</span> minutos <span>${seconds}</span> segundos.</p>
+        `;
+    }
+
+    // Atualizar a contagem regressiva a cada segundo
+    setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
