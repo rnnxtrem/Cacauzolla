@@ -5,31 +5,43 @@
     box-sizing: border-box;
 }
 
+/* Definições do corpo */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f8d7d0, #f9b3c1);
     color: #333;
     line-height: 1.6;
-    padding: 20px;
+    padding: 0;
+}
+
+/* Estilo do header */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    color: #9e2a2b;
 }
 
 header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    text-align: center;
+    font-size: 3em;
+    font-family: 'Sacramento', cursive;
+    color: #9e2a2b;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
 }
 
 header p {
-    font-size: 1.2em;
-    text-align: center;
+    font-size: 1.3em;
+    color: #6f3f3b;
     margin-bottom: 30px;
+    line-height: 1.8;
 }
 
+/* Menu de navegação */
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 nav li {
@@ -38,62 +50,38 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #333;
-    font-size: 1.2em;
-    font-weight: bold;
+    color: #9e2a2b;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 2px solid #9e2a2b;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
+nav a:hover {
+    background-color: #9e2a2b;
+    color: #fff;
+}
+
+/* Seção do texto de coração (Texto 2) */
 section {
-    margin-bottom: 40px;
-}
-
-h2 {
+    padding: 40px 20px;
     text-align: center;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-}
-
-.galeria {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.galeria img {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.player {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.carta {
-    width: 80%;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.capa {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.conteudo {
     font-size: 1.2em;
+    color: #6f3f3b;
+    background-color: #f9c1d2;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 footer {
     text-align: center;
-    font-size: 1em;
-    margin-top: 40px;
+    font-size: 1.1em;
     font-style: italic;
-    color: #555;
+    color: #6f3f3b;
+    margin-top: 50px;
+    padding: 20px;
 }
