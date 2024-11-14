@@ -6,7 +6,135 @@
     <title>Meu Amor - Cacau</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
     <style>
-        /* Seu código de estilo existente */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffe6f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Sacramento', cursive;
+            color: #ff80bf;
+            font-size: 3.5rem;
+        }
+
+        #contador {
+            font-size: 1.8rem;
+            color: #ff4d88;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        #frases-biblicas {
+            font-size: 1.2rem;
+            color: #555;
+            margin: 10px auto;
+            max-width: 700px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #ff4d88;
+            padding: 10px 20px;
+            border: 2px solid #ff4d88;
+            border-radius: 5px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff4d88;
+            color: white;
+        }
+
+        #lembrancas, #cartinha {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .polaroid {
+            background-color: white;
+            padding: 10px 10px 30px 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            max-width: 180px;
+        }
+
+        #nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .nav-button {
+            padding: 8px 16px;
+            font-size: 1rem;
+            color: #ff4d88;
+            border: 2px solid #ff4d88;
+            border-radius: 5px;
+            background-color: #ffe6f2;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #ff4d88;
+            color: white;
+        }
+
+        #cartinha {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            margin: 20px auto;
+            width: 300px;
+            height: 200px;
+            border: none;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -40,14 +168,22 @@
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
         <!-- Música na seção de Lembranças -->
-        <iframe src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&mute=0" width="300" height="200" allow="autoplay; encrypted-media"></iframe>
+        <audio controls autoplay loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento audio.
+        </audio>
     </section>
 
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
         <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar...</p>
         <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
-        <iframe src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&mute=0" width="300" height="200" allow="autoplay; encrypted-media"></iframe>
+        <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
+        <!-- Música na seção de Carta -->
+        <audio controls autoplay loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento audio.
+        </audio>
     </section>
 
     <footer>
@@ -84,17 +220,6 @@
             document.getElementById("foto-atual").src = fotos[fotoIndex];
         }
 
-        document.getElementById("prev-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex > 0) ? fotoIndex - 1 : fotos.length - 1;
-            mostrarFoto();
-        });
+        document.getElementById("prev-btn").addEvent
 
-        document.getElementById("next-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex < fotos.length - 1) ? fotoIndex + 1 : 0;
-            mostrarFoto();
-        });
 
-        mostrarFoto();
-    </script>
-</body>
-</html>
