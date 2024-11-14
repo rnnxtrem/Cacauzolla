@@ -8,8 +8,10 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f0f0f0;
+            background-color: #ffe6f2;
             color: #333;
+            margin: 0;
+            padding: 0;
         }
 
         header {
@@ -19,8 +21,9 @@
 
         h1 {
             font-family: 'Sacramento', cursive;
-            color: #FF6347;
-            font-size: 3rem;
+            color: #ff80bf;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         p {
@@ -28,17 +31,17 @@
             color: #555;
             max-width: 700px;
             margin: 10px auto;
+            line-height: 1.6;
         }
 
-        /* Estilo do contador */
         #contador {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-top: 20px;
-            color: #FF6347;
+            color: #ff4d88;
+            font-weight: bold;
             text-align: center;
         }
 
-        /* Estilo do slideshow */
         .slideshow-container {
             position: relative;
             max-width: 100%;
@@ -57,9 +60,9 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Setinhas de navegação */
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -83,25 +86,27 @@
             right: 0;
         }
 
-        /* Cartinha */
         #cartinha {
             display: none;
             margin-top: 30px;
             text-align: center;
             font-size: 1.2rem;
             color: #555;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
-        /* Música */
         iframe {
             display: block;
             margin: 30px auto;
             width: 100%;
             max-width: 560px;
             height: 315px;
+            border-radius: 10px;
         }
 
-        /* Estilo do rodapé */
         footer {
             text-align: center;
             margin-top: 40px;
@@ -123,8 +128,8 @@
 
         nav ul li a {
             text-decoration: none;
-            font-size: 1.2rem;
-            color: #FF6347;
+            font-size: 1.5rem;
+            color: #ff4d88;
         }
     </style>
 </head>
@@ -171,7 +176,10 @@
     <!-- Música -->
     <section>
         <p>A música que escolhi para você:</p>
-        <iframe src="https://www.youtube.com/embed/kPa7bsKwL-c?si=YbHPBxz10e3gf_tG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <audio controls>
+            <source src="https://www.example.com/sua-musica.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
     </section>
 
     <!-- Rodapé -->
@@ -196,7 +204,8 @@
             var currentDate = new Date();
             var timeDiff = currentDate - startDate;
             var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-            document.getElementById("contador").textContent = "Tempo juntos: " + days + " dias!";
+            var contadorElement = document.getElementById("contador");
+            contadorElement.innerHTML = "Te amando a mais de " + days + " dias!";
         }
 
         // Slideshow
@@ -211,14 +220,16 @@
             slideIndex++;
             if (slideIndex > slides.length) { slideIndex = 1 }
             slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2000); // Muda a imagem a cada 2 segundos
         }
 
         function plusSlides(n) {
-            showSlides(slideIndex += n);
+            slideIndex += n;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            if (slideIndex < 1) { slideIndex = slides.length }
+            showSlides();
         }
 
-        // Atualiza o contador a cada dia
+        // Atualiza o contador
         updateContador();
     </script>
 
