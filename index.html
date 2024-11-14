@@ -5,136 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Amor - Cacau</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
+        /* Estilo simples para imagens */
+        .imagem {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
         }
 
-        header {
-            background-color: #f4a6c4;
-            width: 100%;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 3px solid #ff7f9d;
-        }
-
-        header h1 {
-            margin: 0;
-            color: white;
+        /* Estilo para contador */
+        .contador {
             font-size: 24px;
-        }
-
-        header p {
-            font-size: 16px;
-            color: white;
-        }
-
-        .countdown {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 30px;
-            color: #ff7f9d;
-            text-align: center;
-        }
-
-        .countdown span {
-            font-size: 18px;
-            color: #f45d7d;
-        }
-
-        .carousel-container {
-            margin-top: 30px;
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            overflow: hidden;
-        }
-
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel img {
-            width: 100%;
-            object-fit: cover;
-            height: 400px;
-            border-radius: 10px;
-        }
-
-        .carousel-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel-buttons button {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 20px;
-        }
-
-        audio {
-            margin-top: 30px;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        footer {
-            background-color: #f4a6c4;
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-            border-top: 3px solid #ff7f9d;
-            margin-top: auto;
-        }
-
-        footer p {
-            color: white;
-            margin: 0;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Texto de boas-vindas (Texto 1) -->
     <header>
         <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
         <p>Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
     </header>
 
-    <div class="countdown" id="countdown"></div>
+    <!-- Menu de navegação -->
+    <nav>
+        <ul>
+            <li><a href="#lembrancas">Lembranças</a></li>
+            <li><a href="#cartinha">Cartinha</a></li>
+        </ul>
+    </nav>
 
-    <!-- Carrossel de Fotos -->
-    <div class="carousel-container">
-        <div class="carousel" id="carousel">
-            <!-- As imagens serão carregadas aqui -->
-        </div>
-        <div class="carousel-buttons">
-            <button onclick="moveSlide(-1)">&#10094;</button>
-            <button onclick="moveSlide(1)">&#10095;</button>
-        </div>
-    </div>
+    <!-- Lembranças e imagens -->
+    <section id="lembrancas">
+        <p>Este site é um pedacinho do meu coração, criado especialmente para você, meu amor. Cada detalhe, cada palavra, é uma forma de expressar o quanto você significa para mim. Aqui, tudo é pensado para te fazer sorrir e lembrar o quanto você é única e especial na minha vida. Te amo, e isso é só o começo da nossa história. 😻🤌🏿🙃🫶🏿😋😝</p>
 
-    <!-- Música -->
-    <audio controls>
-        <source src="https://www.easyupload.io/u93nxf" type="audio/mp3">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
+        <div class="imagens">
+            <a href="https://im.ge/i/1000343068.keXqNh">
+                <img src="https://i.im.ge/2024/11/14/keXqNh.1000343068.jpeg" alt="1000343068" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000343071.keX2JX">
+                <img src="https://i.im.ge/2024/11/14/keX2JX.1000343071.jpeg" alt="1000343071" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000343075.keX1E9">
+                <img src="https://i.im.ge/2024/11/14/keX1E9.1000343075.webp" alt="1000343075" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000343077.keXODK">
+                <img src="https://i.im.ge/2024/11/14/keXODK.1000343077.webp" alt="1000343077" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000294021.keXdS8">
+                <img src="https://i.im.ge/2024/11/14/keXdS8.1000294021.jpeg" alt="1000294021" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000294091.keXsfM">
+                <img src="https://i.im.ge/2024/11/14/keXsfM.1000294091.jpeg" alt="1000294091" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000294093.keX7rY">
+                <img src="https://i.im.ge/2024/11/14/keX7rY.1000294093.webp" alt="1000294093" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000293397.keXD5D">
+                <img src="https://i.im.ge/2024/11/14/keXD5D.1000293397.webp" alt="1000293397" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000293402.keXIg4">
+                <img src="https://i.im.ge/2024/11/14/keXIg4.1000293402.jpeg" alt="1000293402" class="imagem">
+            </a>
+            <a href="https://im.ge/i/1000218186.keXUMC">
+                <img src="https://i.im.ge/2024/11/14/keXUMC.1000218186.webp" alt="1000218186" class="imagem">
+            </a>
+        </div>
+
+        <div class="contador">
+            <p>Contagem regressiva para o nosso futuro juntos:</p>
+            <p id="contador"></p>
+        </div>
+    </section>
 
     <!-- Rodapé -->
     <footer>
@@ -142,58 +86,29 @@
     </footer>
 
     <script>
-        // Função para calcular a contagem regressiva desde o dia 10/07/2024
-        function updateCountdown() {
-            const startDate = new Date("2024-07-10T00:00:00");
-            const currentDate = new Date();
-            const timeDiff = currentDate - startDate;
+        // Contador de tempo
+        function startCountdown() {
+            const targetDate = new Date("2024-12-31T23:59:59").getTime(); // Data final para a contagem regressiva
 
-            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            setInterval(function() {
+                const now = new Date().getTime();
+                const timeLeft = targetDate - now;
 
-            document.getElementById("countdown").innerHTML = `
-                <p>Contagem desde que te pedi em namoro:</p>
-                <p><span>${days}</span> dias <span>${hours}</span> horas <span>${minutes}</span> minutos <span>${seconds}</span> segundos.</p>
-            `;
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById("contador").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                if (timeLeft < 0) {
+                    clearInterval(startCountdown);
+                    document.getElementById("contador").innerHTML = "Tempo esgotado!";
+                }
+            }, 1000);
         }
 
-        // Atualizar a contagem regressiva a cada segundo
-        setInterval(updateCountdown, 1000);
-
-        // Links para as fotos
-        const imageLinks = [
-            "https://easyupload.io/m/akh01p/photo1.jpg", 
-            "https://easyupload.io/m/akh01p/photo2.jpg",
-            "https://easyupload.io/m/akh01p/photo3.jpg",
-            "https://easyupload.io/m/akh01p/photo4.jpg",
-            "https://easyupload.io/m/akh01p/photo5.jpg",
-            "https://easyupload.io/m/akh01p/photo6.jpg",
-            "https://easyupload.io/m/akh01p/photo7.jpg",
-            "https://easyupload.io/m/akh01p/photo8.jpg",
-            "https://easyupload.io/m/akh01p/photo9.jpg",
-            "https://easyupload.io/m/akh01p/photo10.jpg"
-        ];
-
-        let currentIndex = 0;
-
-        // Função para exibir as imagens no carrossel
-        function loadImages() {
-            const carousel = document.getElementById('carousel');
-            carousel.innerHTML = `<img src="${imageLinks[currentIndex]}" alt="Foto ${currentIndex + 1}">`;
-        }
-
-        // Função para mover o slide
-        function moveSlide(direction) {
-            currentIndex += direction;
-            if (currentIndex < 0) currentIndex = imageLinks.length - 1;
-            if (currentIndex >= imageLinks.length) currentIndex = 0;
-            loadImages();
-        }
-
-        // Inicializar a galeria de fotos
-        loadImages();
+        startCountdown();
     </script>
 
 </body>
