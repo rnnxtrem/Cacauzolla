@@ -77,6 +77,7 @@
         #lembrancas, #cartinha {
             text-align: center;
             padding: 20px;
+            display: none;
         }
 
         .polaroid {
@@ -172,7 +173,7 @@
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
         <audio controls autoplay loop>
-            <source src="https://www.youtube.com/watch?v=P8iZDiNFGj8?si=_-VHleTIoYEswdGS" type="audio/mp3">
+            <source src="https://www.youtube.com/watch?v=P8iZDiNFGj8?si=9MctgtvRtz1jzO6O" type="audio/mp3">
             Seu navegador não suporta o elemento audio.
         </audio>
     </section>
@@ -201,46 +202,53 @@
             "https://i.postimg.cc/yk04wzXp/retouch-2024102719193638.jpg"
         ];
 
-  let fotoIndex = 0;
+        let fotoIndex = 0;
 
-document.getElementById("lembrancas-btn").addEventListener("click", function() {
-    document.getElementById("lembrancas").style.display = "block";
-    document.getElementById("cartinha").style.display = "none";
-});
+        document.getElementById("lembrancas-btn").addEventListener("click", function() {
+            document.getElementById("lembrancas").style.display = "block";
+            document.getElementById("cartinha").style.display = "none";
+        });
 
-document.getElementById("carta-btn").addEventListener("click", function() {
-    document.getElementById("lembrancas").style.display = "none";
-    document.getElementById("cartinha").style.display = "block";
-});
+        document.getElementById("carta-btn").addEventListener("click", function() {
+            document.getElementById("lembrancas").style.display = "none";
+            document.getElementById("cartinha").style.display = "block";
+        });
 
-document.getElementById("prev-btn").addEventListener("click", function() {
-    fotoIndex = (fotoIndex - 1 + fotos.length) % fotos.length;
-    mostrarFoto();
-});
+        document.getElementById("prev-btn").addEventListener("click", function() {
+            fotoIndex = (fotoIndex - 1 + fotos.length) % fotos.length;
+            mostrarFoto();
+        });
 
-document.getElementById("next-btn").addEventListener("click", function() {
-    fotoIndex = (fotoIndex + 1) % fotos.length;
-    mostrarFoto();
-});
+        document.getElementById("next-btn").addEvent
 
-function mostrarFoto() {
-    document.getElementById("foto-atual").src = fotos[fotoIndex];
-}
+ Listener("click", function() {
+            fotoIndex = (fotoIndex + 1) % fotos.length;
+            mostrarFoto();
+        });
 
-// Contador de tempo
-const dataInicio = new Date("2024-07-10T00:00:00"); // Data do pedido de namoro
-const contador = document.getElementById("contador");
+        function mostrarFoto() {
+            document.getElementById("foto-atual").src = fotos[fotoIndex];
+        }
 
-function atualizarContador() {
-    const agora = new Date();
-    const tempoDecorrido = agora - dataInicio; // tempo em milissegundos
-    const dias = Math.floor(tempoDecorrido / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((tempoDecorrido % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((tempoDecorrido % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((tempoDecorrido % (1000 * 60)) / 1000);
+        // Inicializa a primeira foto ao carregar a página
+        mostrarFoto();
 
-    contador.innerHTML = `Já se passaram ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos desde o nosso pedido de namoro!`;
-}
+        function atualizarContador() {
+            const dataInicial = new Date("2024-07-10T00:00:00");
+            const agora = new Date();
+            const diferenca = agora - dataInicial;
 
-// Atualizar o contador a cada segundo
-setInterval(atualizarContador, 1000);
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            document.getElementById("contador").textContent = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
+        }
+
+        setInterval(atualizarContador, 1000); // Atualiza o contador a cada segundo
+        atualizarContador(); // Chama a função ao carregar a página
+    </script>
+
+</body>
+</html>
