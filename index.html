@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Amor, Minha Cacau 💖</title>
+    <title>Meu Amor - Cacau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #ffe6f7;
             color: #333;
             margin: 0;
@@ -15,6 +16,7 @@
             flex-direction: column;
             align-items: center;
         }
+
         header {
             background-color: #f4a6c4;
             width: 100%;
@@ -22,25 +24,57 @@
             text-align: center;
             border-bottom: 3px solid #ff7f9d;
         }
+
         header h1 {
             margin: 0;
             color: white;
             font-size: 24px;
         }
-        .content {
+
+        header p {
+            font-size: 16px;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ff7f9d;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        section {
             padding: 20px;
             text-align: center;
+            margin-top: 40px;
         }
-        .countdown {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 30px;
-            color: #ff7f9d;
+
+        footer {
+            background-color: #f4a6c4;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            border-top: 3px solid #ff7f9d;
+            margin-top: auto;
         }
-        .countdown span {
-            font-size: 18px;
-            color: #f45d7d;
+
+        footer p {
+            color: white;
+            margin: 0;
         }
+
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -48,6 +82,7 @@
             gap: 15px;
             margin-top: 20px;
         }
+
         .gallery img {
             width: 200px;
             height: 200px;
@@ -55,31 +90,55 @@
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
+
         .gallery img:hover {
             transform: scale(1.1);
         }
+
         audio {
             margin-top: 20px;
             width: 100%;
             max-width: 400px;
         }
+
+        .countdown {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #ff7f9d;
+        }
+
+        .countdown span {
+            font-size: 18px;
+            color: #f45d7d;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Para a minha Cacau, meu amor</h1>
-</header>
+    <header>
+        <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
+        <p>Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
+    </header>
 
-<div class="content">
-    <p>Para a minha gatinha, meu amorzinho, a razão do meu sorriso. Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
+    <!-- Menu de navegação -->
+    <nav>
+        <ul>
+            <li><a href="#lembrancas">Lembranças</a></li>
+            <li><a href="#cartinha">Cartinha</a></li>
+        </ul>
+    </nav>
+
+    <!-- Texto de coração (Texto 2) -->
+    <section id="lembrancas">
+        <p>Este site é um pedacinho do meu coração, criado especialmente para você, meu amor. Cada detalhe, cada palavra, é uma forma de expressar o quanto você significa para mim. Aqui, tudo é pensado para te fazer sorrir e lembrar o quanto você é única e especial na minha vida. Te amo, e isso é só o começo da nossa história. 😻🤌🏿🙃🫶🏿😋😝</p>
+    </section>
 
     <!-- Contagem Regressiva -->
     <div class="countdown" id="countdown"></div>
 
     <!-- Galeria de Fotos -->
-    <div class="gallery" id="gallery">
-        <!-- Links diretos do Google Drive -->
+    <div class="gallery">
         <img src="https://drive.google.com/uc?export=view&id=13B5joJHb11KKdSCl6QyPdnzrJ0mHHobP" alt="Foto 1">
         <img src="https://drive.google.com/uc?export=view&id=136l95dsEb9KjYshsjsGdGUPhgmR1fpM5" alt="Foto 2">
         <img src="https://drive.google.com/uc?export=view&id=133bGhAYe4zzrzBNGlohSN5gRFPoe-JUE" alt="Foto 3">
@@ -97,29 +156,33 @@
         <source src="https://drive.google.com/uc?export=view&id=13GGRyPe5u4zDtrv-qzeG4WX-VhLbPPo6" type="audio/mp3">
         Seu navegador não suporta o elemento de áudio.
     </audio>
-</div>
 
-<script>
-    // Função para calcular a contagem regressiva desde o dia 10/07/2024
-    function updateCountdown() {
-        const startDate = new Date("2024-07-10T00:00:00");
-        const currentDate = new Date();
-        const timeDiff = currentDate - startDate;
+    <!-- Rodapé -->
+    <footer>
+        <p>Feito com muito amor por Ruann 💖</p>
+    </footer>
 
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+    <script>
+        // Função para calcular a contagem regressiva desde o dia 10/07/2024
+        function updateCountdown() {
+            const startDate = new Date("2024-07-10T00:00:00");
+            const currentDate = new Date();
+            const timeDiff = currentDate - startDate;
 
-        document.getElementById("countdown").innerHTML = `
-            <p>Contagem desde que te pedi em namoro:</p>
-            <p><span>${days}</span> dias <span>${hours}</span> horas <span>${minutes}</span> minutos <span>${seconds}</span> segundos.</p>
-        `;
-    }
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-    // Atualizar a contagem regressiva a cada segundo
-    setInterval(updateCountdown, 1000);
-</script>
+            document.getElementById("countdown").innerHTML = `
+                <p>Contagem desde que te pedi em namoro:</p>
+                <p><span>${days}</span> dias <span>${hours}</span> horas <span>${minutes}</span> minutos <span>${seconds}</span> segundos.</p>
+            `;
+        }
+
+        // Atualizar a contagem regressiva a cada segundo
+        setInterval(updateCountdown, 1000);
+    </script>
 
 </body>
 </html>
