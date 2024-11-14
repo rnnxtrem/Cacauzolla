@@ -130,11 +130,6 @@
             height: 200px;
             border: none;
         }
-        
-        audio {
-            width: 100%;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -168,10 +163,7 @@
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
         <!-- Música na seção de Lembranças -->
-        <audio controls autoplay loop>
-            <source src="https://www.youtube.com/watch?v=kPa7bsKwL-c&si=zcB72UnGtA2hWzZg" type="audio/mp3">
-            Seu navegador não suporta o elemento audio.
-        </audio>
+        <iframe width="300" height="200" src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&playlist=kPa7bsKwL-c" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </section>
 
     <section id="cartinha">
@@ -179,11 +171,6 @@
         <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar...</p>
         <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
         <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
-        <!-- Música na seção de Carta -->
-        <audio controls autoplay loop>
-            <source src="https://www.youtube.com/watch?v=kPa7bsKwL-c&si=zcB72UnGtA2hWzZg" type="audio/mp3">
-            Seu navegador não suporta o elemento audio.
-        </audio>
     </section>
 
     <footer>
@@ -221,4 +208,16 @@
         }
 
         document.getElementById("prev-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex === 0) ? fotos
+            fotoIndex = (fotoIndex - 1 + fotos.length) % fotos.length;
+            mostrarFoto();
+        });
+
+        document.getElementById("next-btn").addEventListener("click", function() {
+            fotoIndex = (fotoIndex + 1) % fotos.length;
+            mostrarFoto();
+        });
+
+        mostrarFoto();
+    </script>
+</body>
+</html>
