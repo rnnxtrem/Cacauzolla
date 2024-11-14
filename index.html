@@ -134,7 +134,7 @@
             height: 200px;
             border: none;
         }
-        
+
         audio {
             width: 100%;
             margin-top: 20px;
@@ -172,7 +172,7 @@
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
         <audio controls autoplay loop>
-            <source src="https://www.youtube.com/watch?v=P8iZDiNFGj8?si=-mZaI7C9wW57EAj6" type="audio/mp3">
+            <source src="https://www.youtube.com/watch?v=P8iZDiNFGj8?si=_-VHleTIoYEswdGS" type="audio/mp3">
             Seu navegador não suporta o elemento audio.
         </audio>
     </section>
@@ -201,44 +201,46 @@
             "https://i.postimg.cc/yk04wzXp/retouch-2024102719193638.jpg"
         ];
 
-        let fotoIndex = 0;
+  let fotoIndex = 0;
 
-        document.getElementById("lembrancas-btn").addEventListener("click", function() {
-            document.getElementById("lembrancas").style.display = "block";
-            document.getElementById("cartinha").style.display = "none";
-        });
+document.getElementById("lembrancas-btn").addEventListener("click", function() {
+    document.getElementById("lembrancas").style.display = "block";
+    document.getElementById("cartinha").style.display = "none";
+});
 
-        document.getElementById("carta-btn").addEventListener("click", function() {
-            document.getElementById("lembrancas").style.display = "none";
-            document.getElementById("cartinha").style.display = "block";
-        });
+document.getElementById("carta-btn").addEventListener("click", function() {
+    document.getElementById("lembrancas").style.display = "none";
+    document.getElementById("cartinha").style.display = "block";
+});
 
-        document.getElementById("prev-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex - 1 + fotos.length) % fotos.length;
-            mostrarFoto();
-        });
+document.getElementById("prev-btn").addEventListener("click", function() {
+    fotoIndex = (fotoIndex - 1 + fotos.length) % fotos.length;
+    mostrarFoto();
+});
 
-        document.getElementById("next-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex + 1) % fotos.length;
-            mostrarFoto();
-        });
+document.getElementById("next-btn").addEventListener("click", function() {
+    fotoIndex = (fotoIndex + 1) % fotos.length;
+    mostrarFoto();
+});
 
-        function mostrarFoto() {
-            document.getElementById("foto-atual").src = fotos[fotoIndex];
-        }
+function mostrarFoto() {
+    document.getElementById("foto-atual").src = fotos[fotoIndex];
+}
 
-        function atualizarContador() {
-            const dataInicio = new Date('2024-07-10'); // Data do início do relacionamento
-            const agora = new Date();
-            const tempoPassado = agora - dataInicio;
-            const diasPassados = Math.floor(tempoPassado / (1000 * 60 * 60 * 24));
-            document.getElementById("contador").innerText = `${diasPassados} dias juntos!`;
-        }
+// Contador de tempo
+const dataInicio = new Date("2024-07-10T00:00:00"); // Data do pedido de namoro
+const contador = document.getElementById("contador");
 
-        setInterval(atualizarContador, 1000); // Atualiza o contador a cada segundo
+function atualizarContador() {
+    const agora = new Date();
+    const tempoDecorrido = agora - dataInicio; // tempo em milissegundos
+    const dias = Math.floor(tempoDecorrido / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((tempoDecorrido % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((tempoDecorrido % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((tempoDecorrido % (1000 * 60)) / 1000);
 
-        // Inicializa o contador assim que a página carrega
-        atualizarContador();
-    </script>
-</body>
-</html>
+    contador.innerHTML = `Já se passaram ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos desde o nosso pedido de namoro!`;
+}
+
+// Atualizar o contador a cada segundo
+setInterval(atualizarContador, 1000);
