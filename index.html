@@ -27,10 +27,15 @@
         }
 
         #contador {
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             color: #ff4d88;
             font-weight: bold;
-            margin: 20px 0;
+            margin-top: 10px;
+            background-color: #fff;
+            border: 2px solid #ff80bf;
+            border-radius: 10px;
+            padding: 5px 15px;
+            display: inline-block;
         }
 
         #frases-biblicas {
@@ -123,20 +128,13 @@
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
-
-        iframe {
-            margin: 20px auto;
-            width: 300px;
-            height: 200px;
-            border: none;
-        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
-        <div id="contador"></div>
+        <div id="contador">Carregando...</div>
         <div id="frases-biblicas">
             <p>"Tu és toda formosa, meu amor, e em ti não há mancha." – Cânticos 4:7</p>
             <p>"Onde quer que fores, irei; onde quer que pousares, ali pousarei eu." – Rute 1:16</p>
@@ -162,8 +160,6 @@
             <button class="nav-button" id="prev-btn">Anterior</button>
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
-        <!-- Música na seção de Lembranças -->
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&playlist=kPa7bsKwL-c" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </section>
 
     <section id="cartinha">
@@ -217,6 +213,20 @@
         });
 
         mostrarFoto();
-    </script>
-</body>
+
+        // Contador estilo relógio
+        function atualizarContador() {
+            const dataInicio = new Date("2024-07-10T00:00:00"); // Data de início do namoro
+            const agora = new Date();
+            const diff = agora - dataInicio;
+
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("contador").innerText = `Estamos juntos há ${
+
+        </script>
+    </body>
 </html>
