@@ -138,46 +138,9 @@
             font-size: 1.5rem;
             color: #ff4d88;
         }
-
-        .heart, .petal {
-            position: absolute;
-            animation: float 5s ease-in-out infinite;
-        }
-
-        .heart {
-            font-size: 30px;
-            color: #ff4d88;
-            z-index: 2;
-        }
-
-        .petal {
-            font-size: 20px;
-            color: #ff80bf;
-            z-index: 1;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
-
-    <!-- Efeitos de pétalas e corações flutuando -->
-    <div class="heart" style="top: 10%; left: 10%;">❤️</div>
-    <div class="petal" style="top: 15%; left: 20%;">🌸</div>
-    <div class="heart" style="top: 20%; left: 30%;">❤️</div>
-    <div class="petal" style="top: 25%; left: 40%;">🌸</div>
-    <div class="heart" style="top: 30%; left: 50%;">❤️</div>
-    <div class="petal" style="top: 35%; left: 60%;">🌸</div>
 
     <header>
         <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
@@ -217,17 +180,51 @@
         <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhes seus, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk
         Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿</p>
         <p><strong>Ass: Ruann o seu eterno amor!<br>Para:Cacau a mulher da minha vida</strong></p>
+        <p><strong>“Tu és toda formosa, meu amor, e em ti não há mancha.” – Cânticos 4:7</strong></p>
+        <p><strong>“Eis que tu és formosa, amiga minha, eis que tu és formosa; os teus olhos são como os de uma pomba.” – Cânticos 1:15</strong></p>
+        <p><strong>“Levanta-te, ó minha amiga, e vem. Porque eis o inverno já passou, a chuva cessou e se foi.” – Cânticos 2:10-11</strong></p>
     </section>
 
     <!-- Música -->
-    <section>
-        <p>A música que escolhi para você:</p>
-        <audio controls>
-            <source src="https://www.example.com/sua-musica.mp3" type="audio/mp3">
-            Seu navegador não suporta o elemento de áudio.
-        </audio>
-    </section>
+    <iframe src="https://www.youtube.com/embed/SE7tAT-F6_4?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-    <!-- Rodapé -->
     <footer>
-        <p>Feito com muito amor
+        <p>Te amo, Cacau! 💖</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides(slideIndex);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("mySlides");
+            if (n >= slides.length) {slideIndex = 0}    
+            if (n < 0) {slideIndex = slides.length - 1}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex].style.display = "block";  
+        }
+
+        function mostrarCartinha() {
+            document.getElementById('cartinha').style.display = 'block';
+        }
+
+        function updateCounter() {
+            const startDate = new Date("2024-07-10"); // Data de início do relacionamento
+            const currentDate = new Date();
+            const diffTime = currentDate - startDate;
+            const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const message = `Te amando há mais de ${days} dias! 💖`;
+            document.getElementById("contador").innerText = message;
+        }
+
+        setInterval(updateCounter, 1000);
+        updateCounter();
+    </script>
+</body>
+</html>
