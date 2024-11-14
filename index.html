@@ -168,7 +168,7 @@
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
         <audio controls autoplay loop>
-            <source src="https://www.youtube.com/watch?v=kPa7bsKwL-c&si=zcB72UnGtA2hWzZg" type="audio/mp3">
+            <source src="https://www.youtube.com/watch?v=kPa7bsKwL-c&si=nSGAuh2XVkGH7Xeb" type="audio/mp3">
             Seu navegador não suporta o elemento audio.
         </audio>
     </section>
@@ -227,12 +227,21 @@
             const dataInicio = new Date('2024-07-10T00:00:00');
             const hoje = new Date();
             const diff = hoje - dataInicio;
-            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById("contador").textContent = `${dias} dias com você`;
+            
+            const segundos = Math.floor(diff / 1000);
+            const minutos = Math.floor(segundos / 60);
+            const horas = Math.floor(minutos / 60);
+            const dias =
+Math.floor(horas / 24);
+            const horasRestantes = horas % 24;
+            const minutosRestantes = minutos % 60;
+            const segundosRestantes = segundos % 60;
+
+            document.getElementById("contador").innerText = `Tempo desde o início: ${dias} dias, ${horasRestantes} horas, ${minutosRestantes} minutos, ${segundosRestantes} segundos`;
         }
 
+        setInterval(atualizarContador, 1000);
         atualizarContador();
     </script>
-
 </body>
 </html>
