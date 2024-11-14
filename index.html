@@ -27,15 +27,10 @@
         }
 
         #contador {
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             color: #ff4d88;
             font-weight: bold;
-            margin-top: 10px;
-            background-color: #fff;
-            border: 2px solid #ff80bf;
-            border-radius: 10px;
-            padding: 5px 15px;
-            display: inline-block;
+            margin: 20px 0;
         }
 
         #frases-biblicas {
@@ -128,13 +123,25 @@
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
+
+        iframe {
+            margin: 20px auto;
+            width: 300px;
+            height: 200px;
+            border: none;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
-        <div id="contador">Carregando...</div>
+        <div id="contador"></div>
         <div id="frases-biblicas">
             <p>"Tu és toda formosa, meu amor, e em ti não há mancha." – Cânticos 4:7</p>
             <p>"Onde quer que fores, irei; onde quer que pousares, ali pousarei eu." – Rute 1:16</p>
@@ -160,12 +167,16 @@
             <button class="nav-button" id="prev-btn">Anterior</button>
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
+        <audio controls autoplay loop>
+            <source src="https://www.youtube.com/watch?v=kPa7bsKwL-c&si=zcB72UnGtA2hWzZg" type="audio/mp3">
+            Seu navegador não suporta o elemento audio.
+        </audio>
     </section>
 
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
-        <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar...</p>
-        <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
+        <p><!-- Você pode colocar o texto que desejar aqui --></p>
+        <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
 
     <footer>
@@ -198,10 +209,6 @@
             document.getElementById("cartinha").style.display = "block";
         });
 
-        function mostrarFoto() {
-            document.getElementById("foto-atual").src = fotos[fotoIndex];
-        }
-
         document.getElementById("prev-btn").addEventListener("click", function() {
             fotoIndex = (fotoIndex - 1 + fotos.length) % fotos.length;
             mostrarFoto();
@@ -212,21 +219,20 @@
             mostrarFoto();
         });
 
-        mostrarFoto();
+        function mostrarFoto() {
+            document.getElementById("foto-atual").src = fotos[fotoIndex];
+        }
 
-        // Contador estilo relógio
         function atualizarContador() {
-            const dataInicio = new Date("2024-07-10T00:00:00"); // Data de início do namoro
-            const agora = new Date();
-            const diff = agora - dataInicio;
-
+            const dataInicio = new Date('2024-07-10T00:00:00');
+            const hoje = new Date();
+            const diff = hoje - dataInicio;
             const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById("contador").textContent = `${dias} dias com você`;
+        }
 
-            document.getElementById("contador").innerText = `Estamos juntos há ${
+        atualizarContador();
+    </script>
 
-        </script>
-    </body>
+</body>
 </html>
