@@ -183,6 +183,8 @@
         <p><strong>“Tu és toda formosa, meu amor, e em ti não há mancha.” – Cânticos 4:7</strong></p>
         <p><strong>“Eis que tu és formosa, amiga minha, eis que tu és formosa; os teus olhos são como os de uma pomba.” – Cânticos 1:15</strong></p>
         <p><strong>“Levanta-te, ó minha amiga, e vem. Porque eis o inverno já passou, a chuva cessou e se foi.” – Cânticos 2:10-11</strong></p>
+        <p><strong>“E tu és mais formosa do que os filhos dos homens; a graça se derramou nos teus lábios.” – Salmo 45:2</strong></p>
+        <p><strong>“O amor é forte como a morte, o ciúme é duro como o inferno.” – Cânticos 8:6</strong></p>
     </section>
 
     <!-- Música -->
@@ -200,31 +202,4 @@
             showSlides(slideIndex);
         }
 
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("mySlides");
-            if (n >= slides.length) {slideIndex = 0}    
-            if (n < 0) {slideIndex = slides.length - 1}
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slides[slideIndex].style.display = "block";  
-        }
-
-        function mostrarCartinha() {
-            document.getElementById('cartinha').style.display = 'block';
-        }
-
-        function updateCounter() {
-            const startDate = new Date("2024-07-10"); // Data de início do relacionamento
-            const currentDate = new Date();
-            const diffTime = currentDate - startDate;
-            const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            const message = `Te amando há mais de ${days} dias! 💖`;
-            document.getElementById("contador").innerText = message;
-        }
-
-        setInterval(updateCounter, 1000);
-        updateCounter();
-    </script>
-</body>
-</html>
+        function showSlides(n
