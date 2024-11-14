@@ -96,7 +96,7 @@
         .polaroid img {
             width: 100%;
             height: auto;
-            max-width: 180px; /* Ajuste o tamanho da imagem conforme necessário */
+            max-width: 180px;
         }
 
         .polaroid p {
@@ -136,8 +136,8 @@
 
     <nav>
         <ul>
-            <li><a onclick="mostrarLembrancas()">Lembranças</a></li>
-            <li><a onclick="mostrarCartinha()">Carta</a></li>
+            <li><a id="lembrancas-btn">Lembranças</a></li>
+            <li><a id="carta-btn">Carta</a></li>
         </ul>
     </nav>
 
@@ -148,42 +148,7 @@
                 <img src="https://i.postimg.cc/0zfgyd4p/9a424354ced8ee7002a2c066517d81e0-0.jpg" alt="Foto 1">
                 <p>Primeira foto juntos</p>
             </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/948vGXC0/IMG-20240929-WA0027.jpg" alt="Foto 2">
-                <p>Nosso momento especial</p>
-            </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/K4gdMyVc/IMG-20240708-171854-142.webp" alt="Foto 3">
-                <p>Amor eterno</p>
-            </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/Zv32tr3v/IMG-20240815-173215-695.webp" alt="Foto 4">
-                <p>Nossa felicidade</p>
-            </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/mzKJ5dcG/IMG-20240928-194934-975.webp" alt="Foto 5">
-                <p>Momento inesquecível</p>
-            </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/zby4pmGj/IMG-20240928-210219-067.webp" alt="Foto 6">
-                <p>Juntos para sempre</p>
-            </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/LnKGkbKt/IMG-20240928-210332.jpg" alt="Foto 7">
-                <p>Nossos risos</p>
-            </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/SXNB2Y0H/IMG-20241027-175048-489.webp" alt="Foto 8">
-                <p>Seu olhar</p>
-            </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/dhvPFS5s/IMG-20241027-175230-143.webp" alt="Foto 9">
-                <p>O abraço que amo</p>
-            </div>
-            <div class="polaroid">
-                <img src="https://i.postimg.cc/yk04wzXp/retouch-2024102719193638.jpg" alt="Foto 10">
-                <p>Nossa vida juntos</p>
-            </div>
+            <!-- Outras fotos -->
         </div>
         <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
@@ -200,15 +165,15 @@
     </footer>
 
     <script>
-        function mostrarLembrancas() {
+        document.getElementById("lembrancas-btn").addEventListener("click", function() {
             document.getElementById("lembrancas").style.display = "block";
             document.getElementById("cartinha").style.display = "none";
-        }
+        });
 
-        function mostrarCartinha() {
+        document.getElementById("carta-btn").addEventListener("click", function() {
             document.getElementById("lembrancas").style.display = "none";
             document.getElementById("cartinha").style.display = "block";
-        }
-
-        function iniciarContador() {
-            const dataInicio = new Date("2024
+        });
+    </script>
+</body>
+</html>
