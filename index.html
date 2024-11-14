@@ -1,186 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futiba Chat</title>
+    <title>Meu Amor - Cacau</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://futiba.ai/futiba@0.0.1.min.js"></script>
-    <style>
-        /* Estilos gerais */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        header {
-            background: #002b5e;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        nav {
-            background: #004080;
-            color: #ffffff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 250px;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            z-index: 20;
-        }
-
-        nav.active {
-            transform: translateX(0);
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 20px;
-        }
-
-        nav ul li {
-            margin: 20px 0;
-        }
-
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 30;
-        }
-
-        main {
-            padding: 20px;
-            margin-top: 60px; /* Espaço para o menu lateral */
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        footer {
-            background: #002b5e;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .contact-message {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f4f4f4;
-            border-left: 5px solid #004080;
-            font-size: 1.2em;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            main {
-                margin-top: 60px; /* Espaço para o menu lateral em telas menores */
-            }
-        }
-    </style>
 </head>
 <body>
+
+    <!-- Texto de boas-vindas -->
     <header>
-        <h1>Futiba Chat</h1>
-        <p>Seu portal de futebol com inteligência artificial</p>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
+        <p>Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
     </header>
 
-    <nav id="main-menu">
+    <!-- Menu de navegação -->
+    <nav>
         <ul>
-            <li><a href="#home" onclick="closeMenu()">Início</a></li>
-            <li><a href="#about" onclick="closeMenu()">Sobre</a></li>
-            <li><a href="#features" onclick="closeMenu()">Recursos</a></li>
-            <li><a href="#contact" onclick="closeMenu()">Contato</a></li>
+            <li><a href="#lembrancas">Lembranças</a></li>
+            <li><a href="#cartinha">Cartinha</a></li>
         </ul>
     </nav>
 
-    <main>
-        <section id="home">
-            <h2>Bem-vindo!</h2>
-            <p>Explore nosso portal de futebol e descubra tudo o que temos a oferecer com nossa inteligência artificial.</p>
-        </section>
-        <section id="about">
-            <h2>Sobre</h2>
-            <p>Bem-vindo ao Futiba Chat, onde você pode conversar sobre futebol com uma inteligência artificial! Aproveite para interagir e se divertir com as discussões sobre o mundo do futebol.</p>
-        </section>
-        <section id="features">
-            <h2>Recursos</h2>
-            <p>Descubra os recursos incríveis que o Futiba Chat oferece:</p>
-            <ul>
-                <li>Discussões em tempo real sobre futebol</li>
-                <li>Análises e insights baseados em IA</li>
-                <li>Notícias atualizadas e muito mais!</li>
-            </ul>
-        </section>
-        <section id="contact">
-            <h2>Contato</h2>
-            <p>Desenvolvido por <strong><a href="https://instagram.com/ruann_hsw" target="_blank">@ruann_hsw</a></strong></p>
-            <p>WhatsApp: <a href="https://wa.me/558695714400" target="_blank">+55 86 95714-400</a></p>
-            <p class="contact-message">Qualquer dúvida, entre em contato conosco!
-Site em desenvolvimento, quer contribuir ou saber mais? chame no WhatsApp ou Instagram 🍷🗿
-um cheiro do RD🏄🏿‍♂️ Carol, te amoo muito minha princesa princesa maravilhosa 🫶🏿</p>
-        </section>
-    </main>
+    <!-- Texto de coração (Texto 2) -->
+    <section>
+        <p>Este site é um pedacinho do meu coração, criado especialmente para você, meu amor. Cada detalhe, cada palavra, é uma forma de expressar o quanto você significa para mim. Aqui, tudo é pensado para te fazer sorrir e lembrar o quanto você é única e especial na minha vida. Te amo, e isso é só o começo da nossa história. 😻🤌🏿🙃🫶🏿😋😝</p>
+    </section>
 
+    <!-- Lembranças -->
+    <section id="lembrancas">
+        <h2>Lembranças</h2>
+        <div class="galeria">
+            <img src="link_da_imagem_1.jpg" alt="Foto 1">
+            <img src="link_da_imagem_2.jpg" alt="Foto 2">
+            <img src="link_da_imagem_3.jpg" alt="Foto 3">
+        </div>
+
+        <div class="player">
+            <h3>Música Favorita</h3>
+            <audio controls>
+                <source src="link_da_musica.mp3" type="audio/mp3">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        </div>
+    </section>
+
+    <!-- Carta -->
+    <section id="cartinha">
+        <h2>Minha Carta Para Você</h2>
+        <div class="carta">
+            <div class="capa">
+                <p>Beijinhos 💋</p>
+            </div>
+            <div class="conteudo">
+                <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhe seu, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk. Isso é o mínimo que posso fazer por você, prometo fazer mais e mais 😉🫶🏿</p>
+                <p>Ass: Ruann, o seu eterno amor! <br> Para: Cacau, a mulher da minha vida</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
     <footer>
-        <p>&copy; <span id="year"></span> Futiba Chat. Todos os direitos reservados.</p>
+        <p>Feito com muito amor por Ruann 💖</p>
     </footer>
 
-    <script>
-        // Atualiza o ano no rodapé
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Inicializa o chat Futiba
-        FUTIBA.init({
-            apiKey: "<script src="https://futiba.ai/futiba@0.0.1.min.js"></script>
-
-<script>
-  FUTIBA.init({
-    apiKey: "I2TRxJFpb8wFt9nNNPrk"
-  });
-</script>
-"
-        });
-
-        // Função para alternar a visibilidade do menu
-        function toggleMenu() {
-            document.getElementById('main-menu').classList.toggle('active');
-        }
-
-        // Função para fechar o menu
-        function closeMenu() {
-            document.getElementById('main-menu').classList.remove('active');
-        }
-    </script>
 </body>
 </html>
