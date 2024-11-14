@@ -76,7 +76,7 @@
         .mySlides {
             display: none;
             width: 100%;
-            max-width: 280px;
+            max-width: 200px; /* Reduzi o tamanho da imagem */
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -149,7 +149,7 @@
             <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
             <button class="next" onclick="plusSlides(1)">&#10095;</button>
         </div>
-        <iframe id="music" src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
+        <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
 
     <section id="cartinha">
@@ -157,8 +157,9 @@
         <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhes seus, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk
 Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿 
 Ass: Ruann o seu eterno amor!
-Para:Cacau a mulher da minha vida</p>
+Para:Cacau a mulher da minha vida 🫶🏿</p>
         <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
+        <iframe src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1&mute=1" allow="autoplay; encrypted-media"></iframe>
     </section>
 
     <footer>
@@ -168,10 +169,17 @@ Para:Cacau a mulher da minha vida</p>
     <script>
         function iniciarContador() {
             const dataInicio = new Date("2024-07-10");
-            const agora = new Date();
-            const diff = agora - dataInicio;
-            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById("contador").innerText = `Estamos juntos há ${dias} dias!`;
+            setInterval(() => {
+                const agora = new Date();
+                const diff = agora - dataInicio;
+
+                const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("contador").innerText = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!`;
+            }, 1000);
         }
         iniciarContador();
 
@@ -191,13 +199,11 @@ Para:Cacau a mulher da minha vida</p>
         function mostrarCartinha() {
             document.getElementById("cartinha").style.display = "block";
             document.getElementById("lembrancas").style.display = "none";
-            document.getElementById("music").style.display = "none";
         }
 
         function mostrarLembrancas() {
             document.getElementById("lembrancas").style.display = "block";
             document.getElementById("cartinha").style.display = "none";
-            document.getElementById("music").style.display = "block";
         }
 
         function plusSlides(n) {
