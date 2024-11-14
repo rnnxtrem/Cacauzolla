@@ -12,6 +12,8 @@
             color: #333;
             margin: 0;
             padding: 0;
+            position: relative;
+            overflow: hidden;
         }
 
         header {
@@ -76,6 +78,11 @@
             border-radius: 50%;
             user-select: none;
             transform: translateY(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
         .prev {
@@ -131,9 +138,46 @@
             font-size: 1.5rem;
             color: #ff4d88;
         }
+
+        .heart, .petal {
+            position: absolute;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .heart {
+            font-size: 30px;
+            color: #ff4d88;
+            z-index: 2;
+        }
+
+        .petal {
+            font-size: 20px;
+            color: #ff80bf;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Efeitos de pétalas e corações flutuando -->
+    <div class="heart" style="top: 10%; left: 10%;">❤️</div>
+    <div class="petal" style="top: 15%; left: 20%;">🌸</div>
+    <div class="heart" style="top: 20%; left: 30%;">❤️</div>
+    <div class="petal" style="top: 25%; left: 40%;">🌸</div>
+    <div class="heart" style="top: 30%; left: 50%;">❤️</div>
+    <div class="petal" style="top: 35%; left: 60%;">🌸</div>
 
     <header>
         <h1>Para a minha gatinha, meu amorzinho, a razão do meu sorriso.</h1>
@@ -170,7 +214,9 @@
     <!-- Cartinha -->
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
-        <p>Minha querida Cacau, com todo meu amor e carinho, te escrevo estas palavras para expressar o quanto você significa para mim. Desde o momento que nos encontramos, minha vida se tornou muito mais colorida, alegre e cheia de razão. Cada sorriso seu me faz sentir o quanto estou abençoado por te ter ao meu lado. Te amo de um jeito que palavras não conseguem traduzir, e sou imensamente grato por você ser quem é. Com todo meu amor, sempre.</p>
+        <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhes seus, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk
+        Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿</p>
+        <p><strong>Ass: Ruann o seu eterno amor!<br>Para:Cacau a mulher da minha vida</strong></p>
     </section>
 
     <!-- Música -->
@@ -184,54 +230,4 @@
 
     <!-- Rodapé -->
     <footer>
-        <p>Feito com muito amor por Ruann 💖</p>
-    </footer>
-
-    <script>
-        // Função para mostrar a cartinha
-        function mostrarCartinha() {
-            var cartinha = document.getElementById("cartinha");
-            if (cartinha.style.display === "none") {
-                cartinha.style.display = "block";
-            } else {
-                cartinha.style.display = "none";
-            }
-        }
-
-        // Contador de tempo juntos
-        function updateContador() {
-            var startDate = new Date("2024-07-10");
-            var currentDate = new Date();
-            var timeDiff = currentDate - startDate;
-            var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-            var contadorElement = document.getElementById("contador");
-            contadorElement.innerHTML = "Te amando a mais de " + days + " dias!";
-        }
-
-        // Slideshow
-        var slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            var slides = document.getElementsByClassName("mySlides");
-            for (var i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "block";
-        }
-
-        function plusSlides(n) {
-            slideIndex += n;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            if (slideIndex < 1) { slideIndex = slides.length }
-            showSlides();
-        }
-
-        // Atualiza o contador
-        updateContador();
-    </script>
-
-</body>
-</html>
+        <p>Feito com muito amor
