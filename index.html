@@ -58,7 +58,16 @@
             text-decoration: none;
             font-size: 1.5rem;
             color: #ff4d88;
+            padding: 10px 20px;
+            border: 2px solid #ff4d88;
+            border-radius: 5px;
+            transition: 0.3s;
             cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff4d88;
+            color: white;
         }
 
         #lembrancas, #cartinha {
@@ -191,15 +200,15 @@
     </footer>
 
     <script>
+        function mostrarLembrancas() {
+            document.getElementById("lembrancas").style.display = "block";
+            document.getElementById("cartinha").style.display = "none";
+        }
+
+        function mostrarCartinha() {
+            document.getElementById("lembrancas").style.display = "none";
+            document.getElementById("cartinha").style.display = "block";
+        }
+
         function iniciarContador() {
-            const dataInicio = new Date("2024-07-10");
-            setInterval(() => {
-                const agora = new Date();
-                const diff = agora - dataInicio;
-
-                const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const segundos = Math.floor((diff % (1000 * 60)) / 1000);
-
-                document.getElementById("contador").innerText = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos
+            const dataInicio = new Date("2024
