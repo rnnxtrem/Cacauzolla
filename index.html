@@ -121,7 +121,6 @@
         }
 
         #cartinha {
-            display: none;
             background-color: #fff;
             padding: 20px;
             margin: 20px;
@@ -139,6 +138,7 @@
         audio {
             width: 100%;
             margin-top: 20px;
+            display: none; /* Esconde o player de áudio */
         }
     </style>
 </head>
@@ -172,7 +172,7 @@
             <button class="nav-button" id="prev-btn">Anterior</button>
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
-        <audio controls autoplay loop>
+        <audio id="audio" controls autoplay loop>
             <source src="https://www.youtube.com/watch?v=P8iZDiNFGj8?si=9MctgtvRtz1jzO6O" type="audio/mp3">
             Seu navegador não suporta o elemento audio.
         </audio>
@@ -207,11 +207,13 @@
         document.getElementById("lembrancas-btn").addEventListener("click", function() {
             document.getElementById("lembrancas").style.display = "block";
             document.getElementById("cartinha").style.display = "none";
+            document.getElementById("audio").style.display = "block"; // Mostra o áudio
         });
 
         document.getElementById("carta-btn").addEventListener("click", function() {
             document.getElementById("lembrancas").style.display = "none";
             document.getElementById("cartinha").style.display = "block";
+            document.getElementById("audio").style.display = "none"; // Esconde o áudio
         });
 
         document.getElementById("prev-btn").addEventListener("click", function() {
@@ -219,36 +221,34 @@
             mostrarFoto();
         });
 
-        document.getElementById("next-btn").addEvent
-
- Listener("click", function() {
+        document.getElementById("next-btn").addEventListener("click", function() {
             fotoIndex = (fotoIndex + 1) % fotos.length;
-            mostrarFoto();
+mostrarFoto();
         });
 
         function mostrarFoto() {
             document.getElementById("foto-atual").src = fotos[fotoIndex];
         }
 
-        // Inicializa a primeira foto ao carregar a página
+        // Inicializar a primeira foto na exibição
         mostrarFoto();
 
+        // Configuração do contador de tempo
+        const dataInicial = new Date("2024-07-10T00:00:00");
         function atualizarContador() {
-            const dataInicial = new Date("2024-07-10T00:00:00");
             const agora = new Date();
             const diferenca = agora - dataInicial;
-
             const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-            document.getElementById("contador").textContent = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
+            document.getElementById("contador").innerText = `${dias} dias de amor`;
         }
+        setInterval(atualizarContador, 1000);
 
-        setInterval(atualizarContador, 1000); // Atualiza o contador a cada segundo
-        atualizarContador(); // Chama a função ao carregar a página
+        // Exibir a seção de lembranças ao carregar a página
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("lembrancas").style.display = "block";
+            document.getElementById("cartinha").style.display = "none";
+            document.getElementById("audio").style.display = "block";
+        });
     </script>
-
 </body>
 </html>
