@@ -12,20 +12,19 @@
             color: #333;
             margin: 0;
             padding: 0;
-            position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         header {
             text-align: center;
             margin-top: 20px;
+            padding: 20px;
         }
 
         h1 {
             font-family: 'Sacramento', cursive;
             color: #ff80bf;
             font-size: 3.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         p {
@@ -34,91 +33,6 @@
             max-width: 700px;
             margin: 10px auto;
             line-height: 1.6;
-        }
-
-        #contador {
-            font-size: 1.8rem;
-            margin-top: 20px;
-            color: #ff4d88;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            margin-top: 30px;
-        }
-
-        .mySlides {
-            display: none;
-            width: 100%;
-            max-width: 500px;
-            margin: auto;
-        }
-
-        .mySlides img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            padding: 16px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            cursor: pointer;
-            border-radius: 50%;
-            user-select: none;
-            transform: translateY(-50%);
-            transition: all 0.3s ease;
-        }
-
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .prev {
-            left: 0;
-        }
-
-        .next {
-            right: 0;
-        }
-
-        #cartinha {
-            display: none;
-            margin-top: 30px;
-            text-align: center;
-            font-size: 1.2rem;
-            color: #555;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        iframe {
-            display: block;
-            margin: 30px auto;
-            width: 100%;
-            max-width: 560px;
-            height: 315px;
-            border-radius: 10px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 1rem;
-            color: #888;
         }
 
         nav ul {
@@ -138,6 +52,72 @@
             font-size: 1.5rem;
             color: #ff4d88;
         }
+
+        #contador {
+            font-size: 1.8rem;
+            color: #ff4d88;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #lembrancas {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #888;
+            padding: 10px;
+        }
+
+        #cartinha {
+            display: none;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -147,6 +127,9 @@
         <p>Este site é dedicado a você, minha linda, minha vida, meu maior tesouro. Cada segundo ao seu lado é uma eternidade de felicidade, e eu faria qualquer coisa para ver você sorrir. Te amo mais do que palavras podem expressar, minha princesa!</p>
     </header>
 
+    <!-- Contador de tempo juntos -->
+    <div id="contador"></div>
+
     <!-- Menu de navegação -->
     <nav>
         <ul>
@@ -155,51 +138,73 @@
         </ul>
     </nav>
 
-    <!-- Contador de tempo juntos -->
-    <div id="contador"></div>
+    <!-- Texto de lembranças -->
+    <section id="lembrancas">
+        <p>Este site é um pedacinho do meu coração, criado especialmente para você, meu amor. Cada detalhe, cada palavra, é uma forma de expressar o quanto você significa para mim. Aqui, tudo é pensado para te fazer sorrir e lembrar o quanto você é única e especial na minha vida. Te amo, e isso é só o começo da nossa história. 😻🤌🏿🙃🫶🏿😋😝</p>
+    </section>
 
     <!-- Slideshow de fotos -->
-    <section class="slideshow-container">
-        <div class="mySlides fade">
-            <img src="https://i.im.ge/2024/11/14/keXqNh.1000343068.jpeg" alt="Imagem 1">
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img src="https://i.im.ge/2024/11/14/keXqNh.1000343068.jpeg" alt="Foto 1">
         </div>
-        <div class="mySlides fade">
-            <img src="https://i.im.ge/2024/11/14/keX2JX.1000343071.jpeg" alt="Imagem 2">
+        <div class="mySlides">
+            <img src="https://i.im.ge/2024/11/14/keX2JX.1000343071.jpeg" alt="Foto 2">
         </div>
-        <div class="mySlides fade">
-            <img src="https://i.im.ge/2024/11/14/keX1E9.1000343075.webp" alt="Imagem 3">
+        <div class="mySlides">
+            <img src="https://i.im.ge/2024/11/14/keX1E9.1000343075.webp" alt="Foto 3">
         </div>
-        <!-- Setinhas -->
+        <!-- Botões de navegação -->
         <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
         <button class="next" onclick="plusSlides(1)">&#10095;</button>
-    </section>
+    </div>
 
     <!-- Cartinha -->
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
-        <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫 Eu amo cada detalhes seus, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk
-        Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿</p>
-        <p><strong>Ass: Ruann o seu eterno amor!<br>Para:Cacau a mulher da minha vida</strong></p>
+        <p>Cacau, eu te amo intensamente, mais do que palavras possam expressar. Meu amor por ti será eterno! Eu amo cada detalhe seu, desde os mais simples aos mais intensos. Amo seus cachinhos, seu sorriso lindo, e muito mais. Espero um dia conseguir fazer você a mulher mais feliz do MUNDO! Quero conquistar tudo ao seu lado!</p>
+        <p><strong>Ass: Ruann, o seu eterno amor!<br>Para: Cacau, a mulher da minha vida</strong></p>
         <p><strong>“Tu és toda formosa, meu amor, e em ti não há mancha.” – Cânticos 4:7</strong></p>
-        <p><strong>“Eis que tu és formosa, amiga minha, eis que tu és formosa; os teus olhos são como os de uma pomba.” – Cânticos 1:15</strong></p>
-        <p><strong>“Levanta-te, ó minha amiga, e vem. Porque eis o inverno já passou, a chuva cessou e se foi.” – Cânticos 2:10-11</strong></p>
-        <p><strong>“E tu és mais formosa do que os filhos dos homens; a graça se derramou nos teus lábios.” – Salmo 45:2</strong></p>
-        <p><strong>“O amor é forte como a morte, o ciúme é duro como o inferno.” – Cânticos 8:6</strong></p>
     </section>
 
     <!-- Música -->
-    <iframe src="https://www.youtube.com/embed/SE7tAT-F6_4?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe src="https://youtu.be/kPa7bsKwL-c?si=eyaOHbfq0e2c-c0g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     <footer>
-        <p>Te amo, Cacau! 💖</p>
+        <p>Feito com muito amor por Ruann 💖</p>
     </footer>
 
     <script>
-        let slideIndex = 0;
-
-        function plusSlides(n) {
-            slideIndex += n;
-            showSlides(slideIndex);
+        // Função do contador de tempo juntos
+        function iniciarContador() {
+            const dataInicio = new Date("2024-07-10");
+            const agora = new Date();
+            const diff = agora - dataInicio;
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("contador").innerText = `Estamos juntos há ${dias} dias!`;
         }
+        iniciarContador();
 
-        function showSlides(n
+        // Slideshow de fotos
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Altere para ajustar o tempo
+        }
+        showSlides();
+
+        // Função para exibir a cartinha
+        function mostrarCartinha() {
+            const cartinha = document.getElementById("cartinha");
+            cartinha.style.display = cartinha.style.display === "none" ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>
