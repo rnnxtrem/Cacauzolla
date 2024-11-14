@@ -65,7 +65,7 @@ nav a:hover {
     color: #fff;
 }
 
-/* Seção do texto de coração (Texto 2) */
+/* Seção de Lembranças */
 section {
     padding: 40px 20px;
     text-align: center;
@@ -73,6 +73,30 @@ section {
     color: #6f3f3b;
     background-color: #f9c1d2;
     margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.foto-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.foto-container img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Seção da Cartinha */
+section#cartinha {
+    background-color: #f8d7d0;
+    margin-top: 50px;
+    padding: 40px 20px;
     border-radius: 20px;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 }
