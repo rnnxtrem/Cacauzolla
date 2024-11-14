@@ -6,7 +6,7 @@
     <title>Meu Amor - Cacau</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
     <style>
-        /* Seu código CSS existente */
+        /* Seu código de estilo existente */
     </style>
 </head>
 <body>
@@ -40,15 +40,14 @@
             <button class="nav-button" id="next-btn">Próximo</button>
         </div>
         <!-- Música na seção de Lembranças -->
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&playlist=kPa7bsKwL-c" allow="autoplay; encrypted-media"></iframe>
+        <iframe src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&mute=0" width="300" height="200" allow="autoplay; encrypted-media"></iframe>
     </section>
 
     <section id="cartinha">
         <h2>Minha Cartinha para Você</h2>
         <p>Cacau, eu te amoo intensamente, mais do que palavras possam expressar...</p>
         <p><strong>Ass: Ruann, o seu eterno amor!</strong></p>
-        <!-- Música na seção de Carta -->
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&playlist=kPa7bsKwL-c" allow="autoplay; encrypted-media"></iframe>
+        <iframe src="https://www.youtube.com/embed/kPa7bsKwL-c?autoplay=1&loop=1&mute=0" width="300" height="200" allow="autoplay; encrypted-media"></iframe>
     </section>
 
     <footer>
@@ -56,7 +55,46 @@
     </footer>
 
     <script>
-        /* Seu código JavaScript existente para controle das fotos */
+        const fotos = [
+            "https://i.postimg.cc/0zfgyd4p/9a424354ced8ee7002a2c066517d81e0-0.jpg",
+            "https://i.postimg.cc/948vGXC0/IMG-20240929-WA0027.jpg",
+            "https://i.postimg.cc/K4gdMyVc/IMG-20240708-171854-142.webp",
+            "https://i.postimg.cc/Zv32tr3v/IMG-20240815-173215-695.webp",
+            "https://i.postimg.cc/mzKJ5dcG/IMG-20240928-194934-975.webp",
+            "https://i.postimg.cc/zby4pmGj/IMG-20240928-210219-067.webp",
+            "https://i.postimg.cc/LnKGkbKt/IMG-20240928-210332.jpg",
+            "https://i.postimg.cc/SXNB2Y0H/IMG-20241027-175048-489.webp",
+            "https://i.postimg.cc/dhvPFS5s/IMG-20241027-175230-143.webp",
+            "https://i.postimg.cc/yk04wzXp/retouch-2024102719193638.jpg"
+        ];
+
+        let fotoIndex = 0;
+
+        document.getElementById("lembrancas-btn").addEventListener("click", function() {
+            document.getElementById("lembrancas").style.display = "block";
+            document.getElementById("cartinha").style.display = "none";
+        });
+
+        document.getElementById("carta-btn").addEventListener("click", function() {
+            document.getElementById("lembrancas").style.display = "none";
+            document.getElementById("cartinha").style.display = "block";
+        });
+
+        function mostrarFoto() {
+            document.getElementById("foto-atual").src = fotos[fotoIndex];
+        }
+
+        document.getElementById("prev-btn").addEventListener("click", function() {
+            fotoIndex = (fotoIndex > 0) ? fotoIndex - 1 : fotos.length - 1;
+            mostrarFoto();
+        });
+
+        document.getElementById("next-btn").addEventListener("click", function() {
+            fotoIndex = (fotoIndex < fotos.length - 1) ? fotoIndex + 1 : 0;
+            mostrarFoto();
+        });
+
+        mostrarFoto();
     </script>
 </body>
 </html>
