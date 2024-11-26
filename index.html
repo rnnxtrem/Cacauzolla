@@ -1,251 +1,81 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Amor - Cacau</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #ffe6f2;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        header, footer {
-            text-align: center;
-            padding: 20px;
-        }
-
-        h1 {
-            font-family: 'Sacramento', cursive;
-            color: #ff80bf;
-            font-size: 3.5rem;
-        }
-
-        #contador {
-            font-size: 1.8rem;
-            color: #ff4d88;
-            font-weight: bold;
-            margin: 20px 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 10px;
-            display: inline-block;
-        }
-
-        #frases-biblicas {
-            font-size: 1.2rem;
-            color: #555;
-            margin: 10px auto;
-            max-width: 700px;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            font-size: 1.5rem;
-            color: #ff4d88;
-            padding: 10px 20px;
-            border: 2px solid #ff4d88;
-            border-radius: 5px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        nav ul li a:hover {
-            background-color: #ff4d88;
-            color: white;
-        }
-
-        #lembrancas, #cartinha {
-            text-align: center;
-            padding: 20px;
-            display: none;
-        }
-
-        .polaroid {
-            background-color: white;
-            padding: 10px 10px 30px 10px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            margin: 10px;
-            text-align: center;
-        }
-
-        .polaroid img {
-            width: 100%;
-            height: auto;
-            max-width: 180px;
-        }
-
-        #nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .nav-button {
-            padding: 8px 16px;
-            font-size: 1rem;
-            color: #ff4d88;
-            border: 2px solid #ff4d88;
-            border-radius: 5px;
-            background-color: #ffe6f2;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .nav-button:hover {
-            background-color: #ff4d88;
-            color: white;
-        }
-
-        #cartinha {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        iframe {
-            margin: 20px auto;
-            width: 300px;
-            height: 200px;
-            border: none;
-        }
-    </style>
+    <title>Desire Xiters - Headtrick</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
-        <h1>Para a minha gatinha, minha nega preta, a razão do meu sorriso🤍.</h1>
-        <div id="contador"></div>
-        <div id="frases-biblicas">
-            <p>"Tu és toda formosa, meu amor, e em ti não há mancha." – Cânticos 4:7</p>
-            <p>"Onde quer que fores, irei; onde quer que pousares, ali pousarei eu." – Rute 1:16</p>
-            <p>"O amor tudo sofre, tudo crê, tudo espera, tudo suporta." – 1 Coríntios 13:7</p>
+        <div class="logo">
+            <h1 class="logo-text">𝘿𝙚𝙨𝙞𝙧𝙚 𝙭𝙞𝙩𝙚𝙧𝙨</h1>
         </div>
+        <p class="tagline">Transforme sua Mira com o nosso Headtrick</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a id="lembrancas-btn">Lembranças</a></li>
-            <li><a id="carta-btn">Carta</a></li>
-        </ul>
-    </nav>
-
-    <section id="lembrancas">
-        <p> Especialmente para você, meu amor, pois você merece mares e mares de flore, isso é o mínimo que faço pra vc🙃🫶🏿</p>
-        <div class="slideshow-container">
-            <div class="polaroid">
-                <img id="foto-atual" src="https://i.postimg.cc/0zfgyd4p/9a424354ced8ee7002a2c066517d81e0-0.jpg" alt="Foto Polaroid">
-            </div>
-        </div>
-        <div id="nav-buttons">
-            <button class="nav-button" id="prev-btn">Anterior</button>
-            <button class="nav-button" id="next-btn">Próximo</button>
-        </div>
-        <!-- Iframe do YouTube para tocar o áudio automaticamente na seção "Lembranças" -->
-        <iframe id="audio-frame" style="display: none;" src="https://www.youtube.com/embed/P8iZDiNFGj8?autoplay=1&loop=1&playlist=P8iZDiNFGj8" allow="autoplay"></iframe>
-    </section>
-
-    <section id="cartinha">
-        <h2>Minha Cartinha para Você</h2>
-        <p><!-- Coloque o texto que você desejar aqui -->Cacau, eu te amoo intensamente, mais do que palavras possam expressar, meu amor por ti, sempre será seu eternamente! Saiba que sem você eu já não vivo mais, quando lembro daqueles seus olhinhos de jabuticaba🥹🤌🏿 aquele brilho todo em seu olhar me deixa completamente apaixonado e cego por você, incrível como você me faz ficar assim😫Eu amo cada detalhes seus, desde os mais simples aos mais intensos😋😝 Eu amo seus cachinhos, seu sorriso expendido de lindooo, amo ficar ao seu lado e muito mais garotinha🙃🫶🏿 Espero um dia conseguir fazer você a mulher mais feliz do MUNDOOOO!!!!! Quero conquistar tudo ao seu lado!!! Já chega não vai caber kkkk
-Isso é o mínimo que posso fazer por vc, prometo fazer mais e mais 😉🫶🏿 
-Ass: Ruann o seu eterno amor!
-Para:Cacau a mulher da minha vida</p>
+    <main>
+        <section class="promo">
+            <h2>💥 A Solução Definitiva para sua Mira! 💥</h2>
+            <p>
+                Está cansado de ter uma mira tremendo, errando ou pinando na hora crucial? <strong>Conheça o Desire Xiters!</strong> 
+                Nosso painel <strong>Headtrick</strong> é a resposta para os seus problemas, garantindo precisão e estabilidade sem igual. 
+                Desenvolvido com tecnologia avançada em <strong>C++</strong>, é o aliado perfeito para você dominar o jogo!
+            </p>
+            <p>
+                ✅ Compatível com <strong>todos os Androids</strong><br>
+                ✅ Totalmente <strong>Antiban</strong> e <strong>Antiblacklist</strong><br>
+                ✅ Login permanente para sua conveniência
+            </p>
+            <a href="https://pay.kiwify.com.br/jc90lbx?afid=SqW1fd9R" class="cta">Comprar Agora</a>
         </section>
 
+        <section class="features">
+            <h2>🚀 Funcionalidades Principais</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>AimLock</h3>
+                    <p>Trave no alvo automaticamente e elimine seus oponentes com facilidade.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>AimBot (79%)</h3>
+                    <p>Alcance precisão avançada para atingir o inimigo em qualquer situação.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Stabilized Aim</h3>
+                    <p>Acabe com o tremor da mira e foque apenas na vitória!</p>
+                </div>
+                <div class="feature-item">
+                    <h3>No Recoil</h3>
+                    <p>Anule o recuo das armas e torne-se imbatível em combate.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>🔒 Confiança Comprovada</h2>
+            <p>
+                Milhares de jogadores já experimentaram o poder do nosso Headtrick e aprovaram!
+                Seja você também parte dessa comunidade que domina o campo de batalha.
+            </p>
+        </section>
+
+        <section class="contact">
+            <h2>📞 Entre em Contato</h2>
+            <p>Quer saber mais? Estamos prontos para te ajudar:</p>
+            <a href="https://wa.me/558695714400" class="contact-button whatsapp">WhatsApp</a>
+            <a href="https://instagram.com/ruann_hsw" class="contact-button instagram">Instagram</a>
+        </section>
+
+        <section class="youtube">
+            <h2>🎥 Quer Testar Versões Grátis?</h2>
+            <p>Acesse nosso canal oficial no YouTube e confira:</p>
+            <a href="https://youtube.com/@erickdsr?si=pURssmycBAYGH66P" target="_blank" class="cta">Veja nosso canal no YouTube</a>
+        </section>
+    </main>
+
     <footer>
-        <p>Feito com muito amor e carinho pelo amor de sua vida 💖
-@ruann_hsw</p>
+        <p>© 2024 Desire Xiters. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        const fotos = [
-            "https://i.postimg.cc/0zfgyd4p/9a424354ced8ee7002a2c066517d81e0-0.jpg",
-            "https://i.postimg.cc/948vGXC0/IMG-20240929-WA0027.jpg",
-            "https://i.postimg.cc/K4gdMyVc/IMG-20240708-171854-142.webp",
-            "https://i.postimg.cc/Zv32tr3v/IMG-20240815-173215-695.webp",
-            "https://i.postimg.cc/mzKJ5dcG/IMG-20240928-194934-975.webp",
-            "https://i.postimg.cc/zby4pmGj/IMG-20240928-210219-067.webp",
-            "https://i.postimg.cc/LnKGkbKt/IMG-20240928-210332.jpg",
-            "https://i.postimg.cc/SXNB2Y0H/IMG-20241027-175048-489.webp",
-            "https://i.postimg.cc/dhvPFS5s/IMG-20241027-175230-143.webp",
-            "https://i.postimg.cc/yk04wzXp/retouch-2024102719193638.jpg"
-        ];
-
-        let fotoIndex = 0;
-
-        document.getElementById("lembrancas-btn").addEventListener("click", function() {
-            document.getElementById("lembrancas").style.display = "block";
-            document.getElementById("cartinha").style.display = "none";
-            document.getElementById("audio-frame").style.display = "block"; // Mostra o áudio na seção "Lembranças"
-        });
-
-        document.getElementById("carta-btn").addEventListener("click", function() {
-            document.getElementById("lembrancas").style.display = "none";
-            document.getElementById("cartinha").style.display = "block";
-            document.getElementById("audio-frame").style.display = "none"; // Esconde o áudio na seção "Carta"
-        });
-
-        document.getElementById("prev-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex - 1 + fotos.length) % fotos.length;
-            mostrarFoto();
-        });
-
-        document.getElementById("next-btn").addEventListener("click", function() {
-            fotoIndex = (fotoIndex + 1) % fotos.length;
-            mostrarFoto();
-        });
-
-        function mostrarFoto() {
-            document.getElementById("foto-atual").src = fotos
-[fotoIndex];
-        }
-
-        // Função para atualizar o contador de tempo desde uma data específica
-        function atualizarContador() {
-            const dataInicial = new Date("2024-07-10T00:00:00");
-            const agora = new Date();
-            const diffTempo = agora - dataInicial;
-
-            const dias = Math.floor(diffTempo / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diffTempo % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diffTempo % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diffTempo % (1000 * 60)) / 1000);
-
-            document.getElementById("contador").textContent = `Estou te amando desde ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos😝🙌🏿.`;
-        }
-
-        // Atualiza o contador a cada segundo
-        setInterval(atualizarContador, 1000);
-
-        // Inicializa a primeira foto ao carregar a página
-        mostrarFoto();
-    </script>
-
 </body>
 </html>
