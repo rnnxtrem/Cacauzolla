@@ -3,27 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Tela de Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            background: #2c2c2c;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 1000px;
+            width: 90%;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ff69b4;
+            animation: bounceIn 1s forwards;
+        }
+
+        .info p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            flex: 1;
+            background: #3a3a3a;
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff69b4;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background: #4a4a4a;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        .login-form input:focus {
+            background: #6a6a6a;
+        }
+
+        .login-form button {
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background: #ff69b4;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-form button:hover {
+            background: #ff85c4;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Página do sistema */
+        .container-system {
+            width: 400px;
+            padding: 20px;
+            background: linear-gradient(145deg, #2b2b2b, #121212);
+            border-radius: 20px;
+            box-shadow: 0px 4px 20px rgba(255, 20, 147, 0.8);
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff69b4;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: bounceIn 1.5s;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 4px 15px rgba(255, 105, 180, 0.7);
+        }
+
+        .btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .console {
+            background-color: #121212;
+            color: #ff69b4;
+            font-family: monospace;
+            border: 1px solid #ff69b4;
+            padding: 10px;
+            height: 150px;
+            overflow-y: auto;
+            margin-top: 10px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .footer {
+            font-size: 12px;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .greeting {
+            font-size: 1.5rem;
+            color: #ff69b4;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .current-time {
+            font-size: 1.2rem;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div id="login-container" class="container">
-        <h2>Bem-vindo! Faça login</h2>
-        <form id="login-form" onsubmit="event.preventDefault(); login();">
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" required>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" required>
-            <button type="submit">Entrar</button>
-        </form>
-    </div>
 
-    <div id="system-container" class="container hidden">
-        <h2 id="user-greeting">Olá, Usuário!</h2>
-        <div id="time"></div>
-        <p>Conteúdo do sistema após login.</p>
+<!-- Tela de Login -->
+<div class="container" id="login-container">
+    <div class="info">
+        <h1>Desire Xiter</h1>
+        <p>Bem-vindo, por favor, faça login para continuar.</p>
     </div>
+    <div class="login-form">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
+    </div>
+</div>
 
-    <script src="script.js"></script>
+<!-- Tela do Sistema (após login) -->
+<div class="container-system hidden" id="system-container">
+    <div class="title">
+        <span class="title-logo">𝘿𝙚𝙨𝙞𝙧𝙚 𝙭𝙞𝙩𝙚𝙧𝙨</span>
+    </div>
+    <button class="btn" onclick="executeCommand('AimBot Activator')">
+        Ativador AimBot
+    </button>
+    <button class="btn" onclick="executeCommand('Touch Response')">
+        Resposta ao Toque
+    </button>
+    <button class="btn" onclick="executeCommand('AimLock Sensi')">
+        Sensibilidade AimLock
+    </button>
+    <button class="btn" onclick="executeCommand('HeadTrick Codes')">
+        Códigos HeadTrick
+    </button>
+    <div class="console" id="console-output">
+        <p>Boa tarde, chefe! Hora de xitar!</p>
+    </div>
+</div>
+
+<script>
+    async function login() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Carregar os usuários do arquivo login.json
+        try {
+            let response = await fetch('login.json');
+            let data = await response.json();
+            let users = data.users;
+            
+            let userFound = users.find(user => user.username === username && user.password === password);
+
+            if (userFound) {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('system-container').classList.remove('hidden');
+            } else {
+                alert('Usuário ou senha inválidos!');
+            }
+        } catch (error) {
+            console.error('Erro ao carregar o arquivo login.json', error);
+        }
+    }
+
+    function executeCommand(command) {
+        const consoleOutput = document.getElementById('console-output');
+        consoleOutput.innerHTML += `<p>Comando executado: ${command}</p>`;
+    }
+</script>
+
 </body>
 </html>
