@@ -21,6 +21,8 @@
             background: #2c2c2c;
             border-radius: 15px;
             padding: 20px;
+            max-width: 1000px;
+            width: 90%;
             color: #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             opacity: 0;
@@ -40,6 +42,7 @@
             font-size: 2.5rem;
             margin-bottom: 10px;
             color: #ff69b4;
+            animation: bounceIn 1s forwards;
         }
 
         .info p {
@@ -54,6 +57,8 @@
             border-radius: 10px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 1.5s forwards;
         }
 
         .login-form h2 {
@@ -94,20 +99,8 @@
             background: #ff85c4;
         }
 
-        .buy-button {
-            margin-top: 15px;
-            padding: 12px;
-            width: 100%;
-            background: #ff6347;
-            color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            border-radius: 5px;
-        }
-
-        .buy-button:hover {
-            background: #ff8562;
+        .hidden {
+            display: none;
         }
 
         /* Animações */
@@ -120,9 +113,20 @@
             }
         }
 
-        /* Tela do Sistema (após login) */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Página do sistema */
         .container-system {
-            display: none;
             width: 400px;
             padding: 20px;
             background: linear-gradient(145deg, #2b2b2b, #121212);
@@ -131,6 +135,48 @@
             text-align: center;
             opacity: 0;
             animation: fadeIn 1s forwards;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff69b4;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: bounceIn 1.5s;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 4px 15px rgba(255, 105, 180, 0.7);
+        }
+
+        .btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
 
         .console {
@@ -146,32 +192,23 @@
             text-align: left;
         }
 
-        .hidden {
-            display: none;
+        .footer {
+            font-size: 12px;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        .container-system .btn-clear {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #ff69b4;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .greeting {
+            font-size: 1.5rem;
+            color: #ff69b4;
+            margin-top: 20px;
+            text-align: center;
         }
 
-        .container-system .btn-clear:hover {
-            background-color: #ff85c4;
-        }
-
-        /* Imagem da caveira */
-        .skull-image {
-            width: 200px;
-            height: 200px;
-            background-image: url('skull.png'); /* Adicione o caminho correto para a imagem da caveira */
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 20px;
+        .current-time {
+            font-size: 1.2rem;
+            color: #fff;
+            text-align: center;
         }
     </style>
 </head>
@@ -181,60 +218,104 @@
 <div class="container" id="login-container">
     <div class="info">
         <h1>Desire Xiter</h1>
-        <div class="skull-image"></div> <!-- Imagem da caveira -->
         <p>Bem-vindo, por favor, faça login para continuar.</p>
-        <!-- Botão para comprar acesso -->
-        <button class="buy-button" onclick="window.location.href='https://wa.me/8695714400?text=Quero%20comprar%20acesso'">
-            Comprar Acesso
-        </button>
     </div>
     <div class="login-form">
         <h2>Login</h2>
+        <img src="https://i.ibb.co/MGYKd4K/caveira.png" alt="Caveira" style="width: 100px; margin: 20px auto; animation: bounceIn 1s;">
         <input type="text" id="username" placeholder="Usuário">
         <input type="password" id="password" placeholder="Senha">
         <button onclick="login()">Entrar</button>
+        <button onclick="buyAccess()">Comprar Acesso</button>
     </div>
 </div>
 
 <!-- Tela do Sistema (após login) -->
 <div class="container-system hidden" id="system-container">
-    <h2>Bem-vindo ao sistema</h2>
-    <div class="console" id="console-output">
-        <p>Boa tarde, chefe! Hora de xitar!</p>
+    <div class="title">
+        <img src="https://i.ibb.co/MGYKd4K/caveira.png" alt="Ícone de Caveira" style="width: 40px; height: 40px;">
+        <span class="title-logo">𝘿𝙚𝙨𝙞𝙧𝙚 𝙭𝙞𝙩𝙚𝙧𝙨</span>
     </div>
-    <button class="btn-clear" onclick="clearConsole()">Limpar Console</button>
+    <button class="btn" onclick="executeCommand('AimBot Activator')">
+        <img src="https://i.ibb.co/7SBFKHC/target.png" alt="Ícone de Alvo">
+        Ativador AimBot
+    </button>
+    <button class="btn" onclick="executeCommand('Touch Response')">
+        <img src="https://i.ibb.co/L1hQk4b/touch.png" alt="Ícone de Toque">
+        Resposta ao Toque
+    </button>
+    <button class="btn" onclick="executeCommand('AimLock Sensi')">
+        <img src="https://i.ibb.co/9HD4bpy/lock.png" alt="Ícone de Cadeado">
+        Sensibilidade AimLock
+    </button>
 </div>
 
+<!-- Script -->
 <script>
+    // Função para carregar os dados de login do arquivo JSON
+    async function loadLoginData() {
+        const response = await fetch('login.json');
+        const data = await response.json();
+        return data;
+    }
+
+    // Função para login
     async function login() {
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-        // Carregar os usuários do arquivo login.json
-        try {
-            let response = await fetch('login.json');
-            let data = await response.json();
-            let users = data.users;
-            
-            let userFound = users.find(user => user.username === username && user.password === password);
+        // Carregar dados de login do JSON
+        const loginData = await loadLoginData();
 
-            if (userFound) {
-                // Exibe a tela do sistema após login
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('system-container').classList.remove('hidden');
-                document.getElementById('system-container').style.display = 'block'; // Corrigir exibição
-            } else {
-                alert('Usuário ou senha inválidos!');
-            }
-        } catch (error) {
-            console.error('Erro ao carregar o arquivo login.json', error);
+        // Verificar se as credenciais estão corretas
+        const user = loginData.find(entry => entry.username === username && entry.password === password);
+
+        if (user) {
+            // Login bem-sucedido
+            document.getElementById('login-container').classList.add('hidden');
+            document.getElementById('system-container').classList.remove('hidden');
+            showGreeting(user.username);
+            startClock();
+        } else {
+            alert('Usuário ou senha incorretos.');
         }
     }
 
-    function clearConsole() {
-        document.getElementById('console-output').innerHTML = "<p>Console limpo!</p>";
+    // Função para mostrar saudação personalizada após login
+    function showGreeting(username) {
+        const greeting = document.createElement('div');
+        greeting.classList.add('greeting');
+        greeting.innerText = `Bem-vindo, ${username}!`;
+        document.getElementById('system-container').appendChild(greeting);
+    }
+
+    // Função para mostrar o relógio atual
+    function startClock() {
+        const currentTime = document.createElement('div');
+        currentTime.classList.add('current-time');
+        document.getElementById('system-container').appendChild(currentTime);
+
+        function updateClock() {
+            const now = new Date();
+            currentTime.innerText = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Atualiza imediatamente
+    }
+
+    // Função para simular a execução de comandos do sistema
+    function executeCommand(command) {
+        const consoleArea = document.createElement('div');
+        consoleArea.classList.add('console');
+        document.getElementById('system-container').appendChild(consoleArea);
+        
+        consoleArea.innerHTML = `Comando: ${command} executado com sucesso!`;
+    }
+
+    // Função para comprar acesso
+    function buyAccess() {
+        window.location.href = "https://yourpaymentlink.com";
     }
 </script>
-
 </body>
 </html>
