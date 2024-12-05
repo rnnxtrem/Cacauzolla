@@ -268,43 +268,51 @@
         // Carregar dados de login do JSON
         const loginData = await loadLoginData();
 
-        // Verificar se o login e senha são válidos
-        if (loginData[username] && loginData[username] === password) {
-            // Exibir tela do sistema
+        // Verificar se o usuário e senha existem
+        if (loginData[username] && loginData[username].password === password) {
+            // Se as credenciais forem válidas, exibe a tela do sistema
             document.getElementById('login-container').classList.add('hidden');
             document.getElementById('system-container').classList.remove('hidden');
-            displayGreeting();
+            document.querySelector('.greeting').innerHTML = `Bem-vindo, ${username}!`;
+            displayCurrentTime();  // Exibe a hora atual
         } else {
-            alert('Usuário ou senha inválidos');
+            alert('Usuário ou senha inválidos!');
         }
     }
 
-    // Função para exibir saudação e hora
-    function displayGreeting() {
-        const username = document.getElementById('username').value;
-        const greetingMessage = `Bem-vindo, ${username}!`;
-        document.querySelector('.greeting').innerText = greetingMessage;
-
-        const currentTime = new Date().toLocaleTimeString();
-        document.querySelector('.current-time').innerText = `Hora atual: ${currentTime}`;
-    }
-
-    // Função para executar comandos do sistema
+    // Função para simular a execução de comandos
     function executeCommand(command) {
-        const consoleOutput = document.querySelector('.console');
-        const time = new Date().toLocaleTimeString();
-        consoleOutput.innerHTML += `[${time}] Comando: ${command} executado.<br>`;
-        consoleOutput.scrollTop = consoleOutput.scrollHeight; // Rolagem automática para o final
+        const consoleElement = document.querySelector('.console');
+        consoleElement.innerHTML += `> Comando: ${command}<br/>`;
+        consoleElement.scrollTop = consoleElement.scrollHeight;  // Rolagem para o fim da "console"
     }
 
-    // Função para comprar acesso (Apenas simulação)
+    // Função para comprar acesso
     function buyAccess() {
-        alert('Você está comprando acesso... (Simulação)');
+        window.location.href = "https://your-link.com";  // Substitua pelo link da página de compra
     }
 
-    // Atualizar hora a cada segundo
-    setInterval(displayGreeting, 1000);
+    // Função para exibir a hora atual
+    function displayCurrentTime() {
+        const currentTimeElement = document.querySelector('.current-time');
+        setInterval(() => {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            currentTimeElement.textContent = `Hora Atual: ${time}`;
+        }, 1000);
+    }
+
+    // Inicializa a hora atual
+    displayCurrentTime();
 </script>
+
+<!-- Console -->
+<div class="console hidden"></div>
+
+<!-- Rodapé -->
+<div class="footer">
+    <p>&copy; 2024 Desire Xiter. Todos os direitos reservados.</p>
+</div>
 
 </body>
 </html>
