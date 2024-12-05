@@ -94,6 +94,22 @@
             background: #ff85c4;
         }
 
+        .buy-button {
+            margin-top: 15px;
+            padding: 12px;
+            width: 100%;
+            background: #ff6347;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .buy-button:hover {
+            background: #ff8562;
+        }
+
         /* Animações */
         @keyframes fadeIn {
             from {
@@ -106,6 +122,7 @@
 
         /* Tela do Sistema (após login) */
         .container-system {
+            display: none;
             width: 400px;
             padding: 20px;
             background: linear-gradient(145deg, #2b2b2b, #121212);
@@ -128,6 +145,24 @@
             border-radius: 8px;
             text-align: left;
         }
+
+        .hidden {
+            display: none;
+        }
+
+        .container-system .btn-clear {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container-system .btn-clear:hover {
+            background-color: #ff85c4;
+        }
     </style>
 </head>
 <body>
@@ -137,6 +172,10 @@
     <div class="info">
         <h1>Desire Xiter</h1>
         <p>Bem-vindo, por favor, faça login para continuar.</p>
+        <!-- Botão para comprar acesso -->
+        <button class="buy-button" onclick="window.location.href='https://wa.me/5521988812345?text=Quero%20comprar%20acesso'">
+            Comprar Acesso
+        </button>
     </div>
     <div class="login-form">
         <h2>Login</h2>
@@ -152,6 +191,7 @@
     <div class="console" id="console-output">
         <p>Boa tarde, chefe! Hora de xitar!</p>
     </div>
+    <button class="btn-clear" onclick="clearConsole()">Limpar Console</button>
 </div>
 
 <script>
@@ -177,6 +217,10 @@
         } catch (error) {
             console.error('Erro ao carregar o arquivo login.json', error);
         }
+    }
+
+    function clearConsole() {
+        document.getElementById('console-output').innerHTML = "<p>Console limpo!</p>";
     }
 </script>
 
