@@ -21,8 +21,6 @@
             background: #2c2c2c;
             border-radius: 15px;
             padding: 20px;
-            max-width: 1000px;
-            width: 90%;
             color: #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             opacity: 0;
@@ -42,7 +40,6 @@
             font-size: 2.5rem;
             margin-bottom: 10px;
             color: #ff69b4;
-            animation: bounceIn 1s forwards;
         }
 
         .info p {
@@ -57,8 +54,6 @@
             border-radius: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            animation: fadeIn 1.5s forwards;
         }
 
         .login-form h2 {
@@ -99,10 +94,6 @@
             background: #ff85c4;
         }
 
-        .hidden {
-            display: none;
-        }
-
         /* Animações */
         @keyframes fadeIn {
             from {
@@ -113,19 +104,7 @@
             }
         }
 
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Página do sistema */
+        /* Tela do Sistema (após login) */
         .container-system {
             width: 400px;
             padding: 20px;
@@ -135,48 +114,6 @@
             text-align: center;
             opacity: 0;
             animation: fadeIn 1s forwards;
-        }
-
-        .title {
-            font-size: 28px;
-            font-weight: bold;
-            color: #ff69b4;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: bounceIn 1.5s;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            padding: 10px 20px;
-            margin: 10px 0;
-            background-color: #ff69b4;
-            border: none;
-            border-radius: 8px;
-            color: #000;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            font-size: 14px;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 4px 15px rgba(255, 105, 180, 0.7);
-        }
-
-        .btn img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
         }
 
         .console {
@@ -190,25 +127,6 @@
             margin-top: 10px;
             border-radius: 8px;
             text-align: left;
-        }
-
-        .footer {
-            font-size: 12px;
-            margin-top: 20px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .greeting {
-            font-size: 1.5rem;
-            color: #ff69b4;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .current-time {
-            font-size: 1.2rem;
-            color: #fff;
-            text-align: center;
         }
     </style>
 </head>
@@ -230,21 +148,7 @@
 
 <!-- Tela do Sistema (após login) -->
 <div class="container-system hidden" id="system-container">
-    <div class="title">
-        <span class="title-logo">𝘿𝙚𝙨𝙞𝙧𝙚 𝙭𝙞𝙩𝙚𝙧𝙨</span>
-    </div>
-    <button class="btn" onclick="executeCommand('AimBot Activator')">
-        Ativador AimBot
-    </button>
-    <button class="btn" onclick="executeCommand('Touch Response')">
-        Resposta ao Toque
-    </button>
-    <button class="btn" onclick="executeCommand('AimLock Sensi')">
-        Sensibilidade AimLock
-    </button>
-    <button class="btn" onclick="executeCommand('HeadTrick Codes')">
-        Códigos HeadTrick
-    </button>
+    <h2>Bem-vindo ao sistema</h2>
     <div class="console" id="console-output">
         <p>Boa tarde, chefe! Hora de xitar!</p>
     </div>
@@ -264,6 +168,7 @@
             let userFound = users.find(user => user.username === username && user.password === password);
 
             if (userFound) {
+                // Exibe a tela do sistema após login
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('system-container').classList.remove('hidden');
             } else {
@@ -272,11 +177,6 @@
         } catch (error) {
             console.error('Erro ao carregar o arquivo login.json', error);
         }
-    }
-
-    function executeCommand(command) {
-        const consoleOutput = document.getElementById('console-output');
-        consoleOutput.innerHTML += `<p>Comando executado: ${command}</p>`;
     }
 </script>
 
