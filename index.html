@@ -163,6 +163,16 @@
         .container-system .btn-clear:hover {
             background-color: #ff85c4;
         }
+
+        /* Imagem da caveira */
+        .skull-image {
+            width: 200px;
+            height: 200px;
+            background-image: url('skull.png'); /* Adicione o caminho correto para a imagem da caveira */
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -171,9 +181,10 @@
 <div class="container" id="login-container">
     <div class="info">
         <h1>Desire Xiter</h1>
+        <div class="skull-image"></div> <!-- Imagem da caveira -->
         <p>Bem-vindo, por favor, faça login para continuar.</p>
         <!-- Botão para comprar acesso -->
-        <button class="buy-button" onclick="window.location.href='https://wa.me/5521988812345?text=Quero%20comprar%20acesso'">
+        <button class="buy-button" onclick="window.location.href='https://wa.me/8695714400?text=Quero%20comprar%20acesso'">
             Comprar Acesso
         </button>
     </div>
@@ -211,6 +222,7 @@
                 // Exibe a tela do sistema após login
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('system-container').classList.remove('hidden');
+                document.getElementById('system-container').style.display = 'block'; // Corrigir exibição
             } else {
                 alert('Usuário ou senha inválidos!');
             }
