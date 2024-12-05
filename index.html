@@ -1,74 +1,61 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desirexiters - Domine o Jogo</title>
+    <title>Tela de Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Cabeçalho -->
-    <header>
-        <div class="logo">
-            <h1 class="logo-text">𝘿𝙚𝙨𝙞𝙧𝙚 𝙭𝙞𝙩𝙚𝙧𝙨</h1>
-        </div>
-        <p class="tagline">Seu painel de confiança no Free Fire</p>
-    </header>
 
-    <!-- Corpo do site -->
-    <main>
-        <!-- Introdução -->
-        <section class="intro">
-            <h2>🔥 Transforme sua jogabilidade com o Desirexiters!</h2>
-            <p>
-                Tenha acesso ao painel mais confiável e avançado do mercado.  
-                Controle absoluto, segurança e resultados surpreendentes!
-            </p>
-            <a href="https://whatsss.link/DVx9a7" class="cta">Adquirir Agora</a>
-        </section>
+<!-- Tela de Login -->
+<div class="container" id="login-container">
+    <div class="info">
+        <h1>Desire Xiter</h1>
+        <p>Bem-vindo, por favor, faça login para continuar.</p>
+    </div>
+    <div class="login-form">
+        <h2>Login</h2>
+        <img src="https://i.ibb.co/MGYKd4K/caveira.png" alt="Caveira" style="width: 100px; margin: 20px auto;">
+        <input type="text" id="username" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
+    </div>
+</div>
 
-        <!-- Diferenciais -->
-        <section class="highlights">
-            <h2>💡 Por que somos referência?</h2>
-            <ul>
-                <li>📌 Presença sólida no mercado de Free Fire desde 2024.</li>
-                <li>🛡️ Totalmente antiban e antiblacklist.</li>
-                <li>💼 Utilizando programação avançada: C++ de alto nível.</li>
-                <li>⚙️ Painel configurável para o melhor desempenho no jogo.</li>
-            </ul>
-        </section>
+<!-- Tela do Sistema (após login) -->
+<div class="container-system hidden" id="system-container">
+    <div class="title">
+        <img src="https://i.ibb.co/MGYKd4K/caveira.png" alt="Ícone de Caveira" style="width: 40px; height: 40px;">
+        <span class="title-logo">𝘿𝙚𝙨𝙞𝙧𝙚 𝙭𝙞𝙩𝙚𝙧𝙨</span>
+    </div>
+    <button class="btn" onclick="executeCommand('AimBot Activator')">
+        <img src="https://i.ibb.co/7SBFKHC/target.png" alt="Ícone de Alvo">
+        Ativador AimBot
+    </button>
+    <button class="btn" onclick="executeCommand('Touch Response')">
+        <img src="https://i.ibb.co/L1hQk4b/touch.png" alt="Ícone de Toque">
+        Resposta ao Toque
+    </button>
+    <button class="btn" onclick="executeCommand('AimLock Sensi')">
+        <img src="https://i.ibb.co/9HD4bpy/lock.png" alt="Ícone de Cadeado">
+        Sensibilidade AimLock
+    </button>
+    <button class="btn" onclick="executeCommand('HeadTrick Codes')">
+        <img src="https://i.ibb.co/YRtJQHV/headtrick.png" alt="Ícone de Código">
+        Códigos HeadTrick
+    </button>
+    <div class="console" id="console-output">
+        <p>Boa tarde, chefe! Hora de xitar!</p>
+    </div>
+    <button class="btn" onclick="clearConsole()">
+        Limpar Console
+    </button>
+    <div class="footer">
+        <p>&copy; 2024 Desire Xiter | Todos os direitos reservados.</p>
+    </div>
+</div>
 
-        <!-- Funcionalidades -->
-        <section class="features">
-            <h2>🚀 Principais Funções</h2>
-            <p>
-                ➤ AimLock | AimBot | Stabilized Aim | No Recoil  
-                Desenvolvido com tecnologia de ponta para revolucionar seu jogo.
-            </p>
-        </section>
-
-        <!-- Contato -->
-        <section class="contact">
-            <h2>📞 Entre em contato</h2>
-            <p>Quer saber mais ou comprar? Fale conosco diretamente:</p>
-            <div class="buttons">
-                <a href="https://wa.me/558695714400" class="button whatsapp">WhatsApp</a>
-                <a href="https://instagram.com/ruann_hsw" class="button instagram">Instagram</a>
-            </div>
-        </section>
-
-        <!-- YouTube -->
-        <section class="youtube">
-            <h2>🎥 Teste Agora, Sem Custos!</h2>
-            <p>Confira as versões gratuitas no nosso canal oficial:</p>
-            <a href="https://youtube.com/@erickdsr?si=pURssmycBAYGH66P" target="_blank" class="cta">Ir para o Canal</a>
-        </section>
-    </main>
-
-    <!-- Rodapé -->
-    <footer>
-        <p>© 2024 Desirexiters. Todos os direitos reservados.</p>
-    </footer>
+<script src="script.js"></script>
 </body>
 </html>
