@@ -3,61 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="login-container" class="container">
+        <h2>Bem-vindo! Faça login</h2>
+        <form id="login-form" onsubmit="event.preventDefault(); login();">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
 
-<!-- Tela de Login -->
-<div class="container" id="login-container">
-    <div class="info">
-        <h1>Desire Xiter</h1>
-        <p>Bem-vindo, por favor, faça login para continuar.</p>
+    <div id="system-container" class="container hidden">
+        <h2 id="user-greeting">Olá, Usuário!</h2>
+        <div id="time"></div>
+        <p>Conteúdo do sistema após login.</p>
     </div>
-    <div class="login-form">
-        <h2>Login</h2>
-        <img src="https://i.ibb.co/MGYKd4K/caveira.png" alt="Caveira" style="width: 100px; margin: 20px auto; animation: bounceIn 1s;">
-        <input type="text" id="username" placeholder="Usuário">
-        <input type="password" id="password" placeholder="Senha">
-        <button onclick="login()">Entrar</button>
-    </div>
-</div>
 
-<!-- Tela do Sistema (após login) -->
-<div class="container-system hidden" id="system-container">
-    <div class="title">
-        <img src="https://i.ibb.co/MGYKd4K/caveira.png" alt="Ícone de Caveira" style="width: 40px; height: 40px;">
-        <span class="title-logo">𝘿𝙚𝙨𝙞𝙧𝙚 𝙭𝙞𝙩𝙚𝙧𝙨</span>
-    </div>
-    <button class="btn" onclick="executeCommand('AimBot Activator')">
-        <img src="https://i.ibb.co/7SBFKHC/target.png" alt="Ícone de Alvo">
-        Ativador AimBot
-    </button>
-    <button class="btn" onclick="executeCommand('Touch Response')">
-        <img src="https://i.ibb.co/L1hQk4b/touch.png" alt="Ícone de Toque">
-        Resposta ao Toque
-    </button>
-    <button class="btn" onclick="executeCommand('AimLock Sensi')">
-        <img src="https://i.ibb.co/9HD4bpy/lock.png" alt="Ícone de Cadeado">
-        Sensibilidade AimLock
-    </button>
-    <button class="btn" onclick="executeCommand('HeadTrick Codes')">
-        <img src="https://i.ibb.co/YRtJQHV/headtrick.png" alt="Ícone de Código">
-        Códigos HeadTrick
-    </button>
-    <div class="console" id="console-output">
-        <p>Boa tarde, chefe! Hora de xitar!</p>
-    </div>
-    <button class="btn" onclick="clearConsole()">
-        Limpar Console
-    </button>
-    <div class="footer">
-        <p>&copy; 2024 Desire Xiter | Todos os direitos reservados.</p>
-        <p class="greeting">Olá, <span id="user-greeting"></span></p>
-        <p class="current-time" id="current-time"></p>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
