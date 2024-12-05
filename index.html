@@ -268,54 +268,66 @@
         const loginData = await loadLoginData();
 
         // Verificar se as credenciais estão corretas
-        const user = loginData.find(entry => entry.username === username && entry.password === password);
+        const user = loginData.find(user => user.username === username && user.password === password);
 
         if (user) {
-            // Login bem-sucedido
+            // Se o login for bem-sucedido, exibe a tela do sistema
             document.getElementById('login-container').classList.add('hidden');
             document.getElementById('system-container').classList.remove('hidden');
-            showGreeting(user.username);
-            startClock();
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
         } else {
             alert('Usuário ou senha incorretos.');
         }
     }
 
-    // Função para mostrar saudação personalizada após login
-    function showGreeting(username) {
-        const greeting = document.createElement('div');
-        greeting.classList.add('greeting');
-        greeting.innerText = `Bem-vindo, ${username}!`;
-        document.getElementById('system-container').appendChild(greeting);
-    }
-
-    // Função para mostrar o relógio atual
-    function startClock() {
-        const currentTime = document.createElement('div');
-        currentTime.classList.add('current-time');
-        document.getElementById('system-container').appendChild(currentTime);
-
-        function updateClock() {
-            const now = new Date();
-            currentTime.innerText = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock(); // Atualiza imediatamente
-    }
-
-    // Função para simular a execução de comandos do sistema
+    // Função para simular a execução de comandos no sistema
     function executeCommand(command) {
-        const consoleArea = document.createElement('div');
-        consoleArea.classList.add('console');
-        document.getElementById('system-container').appendChild(consoleArea);
-        
-        consoleArea.innerHTML = `Comando: ${command} executado com sucesso!`;
+        const consoleElement = document.createElement('p');
+        consoleElement.textContent = `Comando Executado: ${command}`;
+        document.querySelector('.console').appendChild(consoleElement);
+        scrollToBottom();
     }
 
-    // Função para comprar acesso
-    function buyAccess() {
-        window.location.href = "https://yourpaymentlink.com";
+    // Função para rolar automaticamente para o final da console
+    function scrollToBottom() {
+        const consoleElement = document.querySelector('.console');
+        consoleElement.scrollTop = consoleElement.scrollHeight;
     }
+
+    // Função para simular compra de acesso
+    function buyAccess() {
+        alert('Você será redirecionado para a compra de acesso.');
+        window.location.href = "https://example.com/compra"; // Substitua pelo link real de compra
+    }
+
+    // Função para mostrar a saudação e hora atual
+    function displayGreeting() {
+        const greetingElement = document.querySelector('.greeting');
+        const currentTimeElement = document.querySelector('.current-time');
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+        let greetingMessage = '';
+        if (hours < 12) {
+            greetingMessage = 'Bom Dia';
+        } else if (hours < 18) {
+            greetingMessage = 'Boa Tarde';
+        } else {
+            greetingMessage = 'Boa Noite';
+        }
+
+        greetingElement.textContent = greetingMessage;
+        currentTimeElement.textContent = `Hora Atual: ${formattedTime}`;
+    }
+
+    // Chama a função para exibir saudação e hora ao carregar a página
+    window.onload = function() {
+        displayGreeting();
+    };
 </script>
+
 </body>
 </html>
