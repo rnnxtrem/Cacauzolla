@@ -1,12 +1,4 @@
 {
-  "users": [
-    {
-      "username": "rd",
-      "password": "123"
-    },
-    {
-      "username": "admin",
-      "password": "admin123"
-    }
-  ]
+    "rd": { "password": "1" },
+    "usuario2": { "password": "senha2" }
 }
