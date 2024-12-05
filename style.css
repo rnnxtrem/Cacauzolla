@@ -92,10 +92,7 @@ body {
     background: #ff85c4;
 }
 
-.hidden {
-    display: none;
-}
-
+/* Animações */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -117,6 +114,7 @@ body {
     }
 }
 
+/* Página do sistema */
 .container-system {
     width: 400px;
     padding: 20px;
@@ -181,4 +179,17 @@ body {
     font-size: 12px;
     margin-top: 20px;
     color: rgba(255, 255, 255, 0.6);
+}
+
+.greeting {
+    font-size: 1.5rem;
+    color: #ff69b4;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.current-time {
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
 }
