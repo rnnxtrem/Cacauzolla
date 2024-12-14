@@ -1,334 +1,243 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+    <title>GG Mouse Pro Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Estilo Geral */
         body {
+            background: radial-gradient(circle at top, #0a1a2b, #142a44, #1d3b5d);
+            color: #f8fafc;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #1a1a1a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            padding: 0;
         }
 
-        .container {
+        /* Cabeçalho e Logo */
+        header {
+            background: linear-gradient(90deg, #1a2940, #20344f, #2a4466);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+            padding: 20px 10px;
             display: flex;
-            background: #2c2c2c;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .logo-text {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.5rem;
+            color: #00d4ff;
+            text-shadow: 0px 4px 8px rgba(0, 212, 255, 0.7);
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .logo-subtext {
+            font-size: 1rem;
+            color: #fff;
+            font-style: italic;
+        }
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #00d4ff;
+        }
+
+        /* Layout e Cartões */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
             border-radius: 15px;
             padding: 20px;
-            max-width: 1000px;
-            width: 90%;
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-
-        .info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #ff69b4;
-            animation: bounceIn 1s forwards;
-        }
-
-        .info p {
-            font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
             margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
         }
 
-        .login-form {
-            flex: 1;
-            background: #3a3a3a;
-            padding: 30px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            animation: fadeIn 1.5s forwards;
-        }
-
-        .login-form h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #ff69b4;
-        }
-
-        .login-form input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 5px;
-            outline: none;
-            background: #4a4a4a;
+        /* Botões Animados */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #0061ff, #00d4ff);
+            padding: 12px 20px;
             color: #fff;
-            transition: background 0.3s ease;
-        }
-
-        .login-form input:focus {
-            background: #6a6a6a;
-        }
-
-        .login-form button {
-            padding: 12px;
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-            background: #ff69b4;
-            color: #fff;
+            text-transform: uppercase;
             font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-bottom: 15px; /* Adiciona o espaçamento entre os botões */
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 15px; /* Espaçamento entre botões */
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.9);
         }
 
-        .login-form button:hover {
-            background: #ff85c4;
+        /* Títulos e Listas */
+        h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: #00d4ff;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
         }
 
-        .hidden {
+        /* Estilos para o Formulário */
+        #form-container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
             display: none;
         }
-
-        /* Animações */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Página do sistema */
-        .container-system {
-            width: 400px;
-            padding: 20px;
-            background: linear-gradient(145deg, #2b2b2b, #121212);
-            border-radius: 20px;
-            box-shadow: 0px 4px 20px rgba(255, 20, 147, 0.8);
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-
-        .title {
-            font-size: 28px;
-            font-weight: bold;
-            color: #ff69b4;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: bounceIn 1.5s;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            padding: 10px 20px;
-            margin: 10px 0;
-            background-color: #ff69b4;
-            border: none;
-            border-radius: 8px;
-            color: #000;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            font-size: 14px;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 4px 15px rgba(255, 105, 180, 0.7);
-        }
-
-        .btn img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-
-        .console {
-            background-color: #121212;
-            color: #ff69b4;
-            font-family: monospace;
-            border: 1px solid #ff69b4;
+        #form-container input {
+            width: 100%;
             padding: 10px;
-            height: 150px;
-            overflow-y: auto;
-            margin-top: 10px;
-            border-radius: 8px;
-            text-align: left;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #00d4ff;
+            border-radius: 5px;
         }
-
-        .footer {
-            font-size: 12px;
-            margin-top: 20px;
-            color: rgba(255, 255, 255, 0.6);
+        #form-container button {
+            padding: 10px 20px;
+            background: #00d4ff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
         }
-
-        .greeting {
-            font-size: 1.5rem;
-            color: #ff69b4;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .current-time {
-            font-size: 1.2rem;
-            color: #fff;
-            text-align: center;
+        #form-container button:hover {
+            background: #009fcc;
         }
     </style>
+    <!-- Fonte Caligráfica -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Cabeçalho com Logo -->
+    <header>
+        <img src="https://dl.dropboxusercontent.com/scl/fi/7f994zm0d2k8fb02kq2vg/1734190931307.jpeg?rlkey=4fqqokm765007o70v9c4g0es8&dl=0" alt="Logo GG Mouse Pro" class="logo-img" />
+        <div>
+            <div class="logo-text">GG Mouse Pro</div>
+            <div class="logo-subtext">A melhor guilda de mobiladores no Free Fire! 🎮✨</div>
+        </div>
+    </header>
 
-<!-- Tela de Login -->
-<div class="container" id="login-container">
-    <div class="info">
-        <h1>Desire Xiter</h1>
-        <p>Bem-vindo, por favor, faça login para continuar.</p>
-    </div>
-    <div class="login-form">
-        <h2>Login</h2>
-        <img src="https://i.ibb.co/MGYKd4K/caveira.png" alt="Caveira" style="width: 100px; margin: 20px auto; animation: bounceIn 1s;">
-        <input type="text" id="username" placeholder="Usuário">
-        <input type="password" id="password" placeholder="Senha">
-        <button onclick="login()">Entrar</button>
-        <button onclick="buyAccess()">Comprar Acesso</button>
-    </div>
-</div>
+    <!-- Conteúdo Principal -->
+    <main class="max-w-4xl mx-auto p-6">
+        <!-- Requisitos -->
+        <section id="requisitos" class="card">
+            <h2 class="text-2xl mb-4">📋 Requisitos</h2>
+            <ul class="list-disc list-inside">
+                <li>⭐ <strong>Pontuação Semanal:</strong> Mínimo de 1.000 pontos (justifique se não alcançar). 📈</li>
+                <li>⏳ <strong>Disponibilidade:</strong> Máximo de 3 dias sem jogar (risco de ban). ⏰</li>
+                <li>💪 <strong>Treinamento:</strong> Participação opcional em treinos de Squad nos fins de semana.</li>
+                <li>👥 <strong>Interatividade:</strong> Jogar e interagir com membros da guilda.</li>
+            </ul>
+        </section>
 
-<!-- Tela do Sistema (após login) -->
-<div class="container-system hidden" id="system-container">
-    <div class="title">
-        <img src="https://i.ibb.co/MGYKd4K/caveira.png" alt="Ícone de Caveira" style="width: 40px; height: 40px;">
-        <span class="title-logo">𝘿𝙚𝙨𝙞𝙧𝙚 𝙭𝙞𝙩𝙚𝙧𝙨</span>
-    </div>
-    <button class="btn" onclick="executeCommand('AimBot Activator')">
-        <img src="https://i.ibb.co/7SBFKHC/target.png" alt="Ícone de Alvo">
-        Ativador AimBot
-    </button>
-    <button class="btn" onclick="executeCommand('Touch Response')">
-        <img src="https://i.ibb.co/L1hQk4b/touch.png" alt="Ícone de Toque">
-        Resposta ao Toque
-    </button>
-    <button class="btn" onclick="executeCommand('AimLock Sensi')">
-        <img src="https://i.ibb.co/9HD4bpy/lock.png" alt="Ícone de Cadeado">
-        Sensibilidade AimLock
-    </button>
-    <button class="btn" onclick="executeCommand('HeadTrick Codes')">
-        <img src="https://i.ibb.co/YRtJQHV/headtrick.png" alt="Ícone de Código">
-        Códigos HeadTrick
-    </button>
-    <div class="console" id="console-output">
-        <p>Boa tarde, chefe! Hora de xitar!</p>
-    </div>
-    <button class="btn" onclick="clearConsole()">
-        Limpar Console
-    </button>
-    <div class="footer">
-        <div class="footer">
-        <p>&copy;Seja consciente de suas ações. @ruann_hsw.</p>
-        <p class="greeting">Olá, <span id="user-greeting"></span></p>
-        <p class="current-time" id="current-time"></p>
-    </div>
-</div>
+        <!-- Benefícios -->
+        <section id="beneficios" class="card">
+            <h2 class="text-2xl mb-4">🎁 Benefícios</h2>
+            <ul class="list-disc list-inside">
+                <li>🤝 <strong>Comunidade ativa:</strong> Suporte mútuo e amizade.</li>
+                <li>📚 <strong>Treinamentos:</strong> Dicas de jogadores experientes.</li>
+                <li>🚀 <strong>Crescimento:</strong> Oportunidades de desenvolvimento.</li>
+                <li>🎉 <strong>Possíveis sorteios:</strong> Surpresas exclusivas para membros da guilda. 🫣</li>
+            </ul>
+        </section>
 
-<!-- Script -->
-<script>
-    // Função para carregar os dados de login do arquivo JSON
-    async function loadLoginData() {
-        const response = await fetch('login.json');
-        const data = await response.json();
-        return data;
-    }
+        <!-- Como se Candidatar -->
+        <section id="candidatura" class="card">
+            <h2 class="text-2xl mb-4">📝 Como se Candidatar</h2>
+            <ol class="list-decimal list-inside">
+                <li>📲 <strong>Envie solicitação:</strong> ID e informações de jogo.</li>
+                <li>⏱️ <strong>Aguarde resposta:</strong> 1-2 dias.</li>
+                <li>😄 <strong>Prepare-se:</strong> Para jogar e se divertir!</li>
+            </ol>
+        </section>
 
-    // Função para login
-    async function login() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+        <!-- Formulário de Chamada para ADM -->
+        <section id="chamar-adm" class="card">
+            <h2 class="text-2xl mb-4">📞 Chamar um Administrador</h2>
+            <div>
+                <button class="btn" onclick="openForm('Binho')">Falar com Binho</button>
+                <button class="btn" onclick="openForm('BLENTACION')">Falar com BLENTACION</button>
+                <button class="btn" onclick="openForm('RD')">Falar com RD</button>
+            </div>
 
-        // Carregar dados de login do JSON
-        const loginData = await loadLoginData();
+            <div id="form-container">
+                <h3 class="text-xl mb-4">Qual seu ID, coloque se Nick também 😉</h3>
+                <input id="id-input" type="text" placeholder="Seu ID" required>
+                <input id="nick-input" type="text" placeholder="Seu Nick" required>
+                <button onclick="submitForm()">Confirmar</button>
+                <button onclick="closeForm()">Cancelar</button>
+            </div>
+        </section>
+    </main>
 
-        // Verificar se o usuário e senha existem
-        if (loginData[username] && loginData[username].password === password) {
-            // Se as credenciais forem válidas, exibe a tela do sistema
-            document.getElementById('login-container').classList.add('hidden');
-            document.getElementById('system-container').classList.remove('hidden');
-            document.querySelector('.greeting').innerHTML = `Bem-vindo, ${username}!`;
-            displayCurrentTime();  // Exibe a hora atual
-        } else {
-            alert('Usuário ou senha inválidos!');
+    <!-- Rodapé -->
+    <footer class="text-center p-6 mt-8">
+        <p>© 2023 GG Mouse Pro Oficial. Todos os direitos reservados. 🌟</p>
+    </footer>
+
+    <script>
+        let selectedAdm;
+
+        function openForm(adm) {
+            selectedAdm = adm;
+            document.getElementById('form-container').style.display = 'block';
         }
-    }
 
-    // Função para simular a execução de comandos
-    function executeCommand(command) {
-        const consoleElement = document.querySelector('.console');
-        consoleElement.innerHTML += `> Comando: ${command}<br/>`;
-        consoleElement.scrollTop = consoleElement.scrollHeight;  // Rolagem para o fim da "console"
-    }
+        function closeForm() {
+            document.getElementById('form-container').style.display = 'none';
+        }
 
-    // Função para comprar acesso
-    function buyAccess() {
-        window.location.href = "https://wa.me/558695714400?text=Quero%20comprar%20acesso%20ao%20painel%20HTML%20";  // Substitua pelo link da página de compra
-    }
+        function submitForm() {
+            const id = document.getElementById('id-input').value;
+            const nick = document.getElementById('nick-input').value;
 
-    // Função para exibir a hora atual
-    function displayCurrentTime() {
-        const currentTimeElement = document.querySelector('.current-time');
-        setInterval(() => {
-            const now = new Date();
-            const time = now.toLocaleTimeString();
-            currentTimeElement.textContent = `Hora Atual: ${time}`;
-        }, 1000);
-    }
+            // Verificação do ID (somente números e até 12 dígitos)
+            if (!/^\d{1,12}$/.test(id)) {
+                alert('Por favor, insira um ID válido (somente números e até 12 dígitos).');
+                return;
+            }
 
-    // Inicializa a hora atual
-    displayCurrentTime();
-</script>
+            if (id && nick) {
+                const message = `Olá, quero entrar pra guilda, este é meu id/Nick: ${id}/${nick}`;
+                let url;
 
-<!-- Console -->
-<div class="console hidden"></div>
+                switch (selectedAdm) {
+                    case 'Binho':
+                        url = `https://wa.me/554184507954?text=${encodeURIComponent(message)}`;
+                        break;
+                    case 'BLENTACION':
+                        url = `https://wa.me/558181134465?text=${encodeURIComponent(message)}`;
+                        break;
+                    case 'RD':
+                        url = `https://wa.me/558695714400?text=${encodeURIComponent(message)}`;
+                        break;
+                    default:
+                        return;
+                }
 
-<!-- Rodapé -->
-<div class="footer">
-    <p>&copy; 2024 Desire Xiter. Todos os direitos reservados.</p>
-</div>
-
+                window.open(url, '_blank');
+                closeForm();
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        }
+    </script>
 </body>
 </html>
