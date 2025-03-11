@@ -120,6 +120,38 @@
         #form-container button:hover {
             background: #009fcc;
         }
+
+        /* Banner de Oferta Especial */
+        .offer-banner {
+            background-color: #ff4c4c;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .offer-banner a {
+            display: inline-block;
+            background: linear-gradient(45deg, #0061ff, #00d4ff);
+            padding: 12px 20px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+        .offer-banner a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.9);
+        }
+        }
+        .offer-banner a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.9);
+        }
+
     </style>
     <!-- Fonte Caligráfica -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400&display=swap" rel="stylesheet">
@@ -133,6 +165,15 @@
             <div class="logo-subtext">A melhor guilda de mobiladores no Free Fire! 🎮✨</div>
         </div>
     </header>
+
+    <!-- Banner de Oferta Especial -->
+    <div class="offer-banner">
+        💥 OFERTA ESPECIAL: HEADTRICK, REGEDIT & PAINEL FF 💥
+        <br>
+        🔥 Mira Estabilizada | 🚀 Regedit Atualizado | 🎯 Painel VIP
+        <br>
+        <a href="https://desiretrick.com.br/?pid=rd" target="_blank">🔗 Comprar Agora</a>
+    </div>
 
     <!-- Conteúdo Principal -->
     <main class="max-w-4xl mx-auto p-6">
@@ -173,69 +214,64 @@
             <h2 class="text-2xl mb-4">📞 Chamar um Administrador</h2>
             <div>
                 <button class="btn" onclick="openForm('Binho')">Falar com Binho</button>
-                <button class="btn" onclick="openForm('BLENTACION')">Falar com BLENTACION</button>
+                <button class="btn" onclick="openForm('BLENTACION')">Falar com vitinho</button>
                 <button class="btn" onclick="openForm('RD')">Falar com RD</button>
             </div>
 
             <div id="form-container">
-                <h3 class="text-xl mb-4">Qual seu ID, coloque se Nick também 😉</h3>
+                <h3 class="text-xl mb-4">Qual seu ID, coloque seu Nick também 😉</h3>
                 <input id="id-input" type="text" placeholder="Seu ID" required>
                 <input id="nick-input" type="text" placeholder="Seu Nick" required>
                 <button onclick="submitForm()">Confirmar</button>
                 <button onclick="closeForm()">Cancelar</button>
             </div>
         </section>
+
     </main>
 
     <!-- Rodapé -->
     <footer class="text-center p-6 mt-8">
         <p>© 2023 GG Mouse Pro Oficial. Todos os direitos reservados. 🌟</p>
+        <p>Desenvolvido por Ruann. A melhor experiência no Free Fire. 🚀</p>
     </footer>
 
     <script>
-        let selectedAdm;
-
-        function openForm(adm) {
-            selectedAdm = adm;
-            document.getElementById('form-container').style.display = 'block';
+        // Função para abrir o formulário de contato com administradores
+        function openForm(admin) {
+            const formContainer = document.getElementById('form-container');
+            formContainer.style.display = 'block';
+            document.getElementById('id-input').focus();
+            formContainer.setAttribute('data-admin', admin);  // Salvar o administrador escolhido
         }
 
+        // Função para fechar o formulário
         function closeForm() {
-            document.getElementById('form-container').style.display = 'none';
+            const formContainer = document.getElementById('form-container');
+            formContainer.style.display = 'none';
         }
 
+        // Função para submeter o formulário
         function submitForm() {
+            const admin = document.getElementById('form-container').getAttribute('data-admin');
             const id = document.getElementById('id-input').value;
             const nick = document.getElementById('nick-input').value;
 
-            // Verificação do ID (somente números e até 12 dígitos)
-            if (!/^\d{1,12}$/.test(id)) {
-                alert('Por favor, insira um ID válido (somente números e até 12 dígitos).');
-                return;
-            }
+            // Criação da mensagem para o WhatsApp
+            const message = `Olá, quero entrar pra guilda, este é meu id/nick: ${id} / ${nick}`;
+            const phoneNumbers = {
+                'Binho': '+55 41 8450-7954',
+                'vitinho': '+55 11 95973-8656',
+                'RD': '+558695714400',
+            };
 
-            if (id && nick) {
-                const message = `Olá, quero entrar pra guilda, este é meu id/Nick: ${id}/${nick}`;
-                let url;
+            const phoneNumber = phoneNumbers[admin];
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-                switch (selectedAdm) {
-                    case 'Binho':
-                        url = `https://wa.me/554184507954?text=${encodeURIComponent(message)}`;
-                        
-                        break;
-                    case 'RD':
-                        url = `https://wa.me/558695714400?text=${encodeURIComponent(message)}`;
-                        break;
-                    default:
-                        return;
-                }
-
-                window.open(url, '_blank');
-                closeForm();
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
+            // Redireciona para o WhatsApp
+            window.open(whatsappURL, '_blank');
+            closeForm();  // Fecha o formulário após enviar
         }
     </script>
+
 </body>
 </html>
