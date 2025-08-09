@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificação de Acesso</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #0f0f0f 0%, #000000 100%);
+      color: white;
+    }.overlay {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #ffffff30;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+}
+
+h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.step {
+  margin: 10px 0;
+  padding: 12px;
+  background-color: #111;
+  border: 1px solid #ffffff30;
+  border-radius: 10px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  opacity: 1;
+  background-color: #1f1f1f;
+  font-weight: bold;
+}
+
+.step.complete {
+  background-color: #2ecc71;
+  color: black;
+}
+
+.step button {
+  margin-top: 8px;
+  padding: 10px 15px;
+  background-color: #111;
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.step button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.step button:hover:not(:disabled) {
+  background-color: white;
+  color: black;
+}
+
+.progress-container {
+  margin-top: 30px;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #2ecc71;
+  transition: width 0.5s ease;
+}
+
+.open-generator-btn {
+  margin-top: 30px;
+  display: none;
+  background-color: #2ecc71;
+  color: black;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px #2ecc71aa;
+}
+
+.credit {
+  margin-top: 20px;
+  font-size: 14px;
+  color: gray;
+}
+
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Antes de começar...</h1>
+    <p>Conclua os 5 passos abaixo para liberar o acesso ao Gerador de Sense</p><div class="step" id="step1">
+  <div>1. Visite o Canal 1</div>
+  <button onclick="openLink(0)" id="btn1">Acessar Canal 1</button>
+</div>
+
+<div class="step" id="step2">
+  <div>2. Visite o Canal 2</div>
+  <button onclick="openLink(1)" id="btn2" disabled>Acessar Canal 2</button>
+</div>
+
+<div class="step" id="step3">
+  <div>3. Visite o Canal 3</div>
+  <button onclick="openLink(2)" id="btn3" disabled>Acessar Canal 3</button>
+</div>
+
+<div class="step" id="step4">
+  <div>4. Entre no Grupo</div>
+  <button onclick="openLink(3)" id="btn4" disabled>Acessar Grupo</button>
+</div>
+
+<div class="step" id="step5">
+  <div>5. Visite a Loja Oficial</div>
+  <button onclick="openLink(4)" id="btn5" disabled>Acessar Loja</button>
+</div>
+
+<div class="progress-container">
+  <div class="progress-bar" id="progress-bar"></div>
+</div>
+
+<button id="abrirGerador" class="open-generator-btn" onclick="window.location.href='gerador de config.html'">ABRIR O GERADOR DE SENSE</button>
+<div class="credit">By RD 🥋</div>
+
+  </div>  <script>
+    const links = [
+      "https://youtube.com/@erickdsr?si=Jj-v2cMRCy13ybxd",
+      "https://youtube.com/@4mxiters?si=GGpSO2i5VvRUWsgG",
+      "https://youtube.com/@shisuiyzk7?si=rIKck3FZbf48RVsH",
+      "https://chat.whatsapp.com/KUVSDi0SV4M1CN9AM8k44f?mode=ac_t",
+      "https://desiretrick.com.br/?pid=rd"
+    ];
+
+    let currentStep = 1;
+
+    function openLink(index) {
+      window.open(links[index], '_blank');
+      const stepId = `step${currentStep}`;
+      document.getElementById(stepId).classList.add("complete");
+      document.getElementById(`btn${currentStep}`).disabled = true;
+      currentStep++;
+      if (currentStep <= 5) {
+        setTimeout(() => {
+          document.getElementById(`btn${currentStep}`).disabled = false;
+          document.getElementById(`step${currentStep}`).classList.add("active");
+        }, 5000);
+      }
+      updateProgress();
+      if (currentStep > 5) {
+        document.getElementById("abrirGerador").style.display = "block";
+      }
+    }
+
+    function updateProgress() {
+      const percent = (currentStep - 1) * 20;
+      document.getElementById("progress-bar").style.width = percent + "%";
+    }
+
+    // Ativa o primeiro passo ao carregar
+    window.onload = () => {
+      document.getElementById("step1").classList.add("active");
+    };
+  </script></body>
+</html>
