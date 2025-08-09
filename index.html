@@ -76,8 +76,10 @@ button:disabled {background:#555;cursor:not-allowed;}
 }
 .creditos {
   margin-top: 20px;
-  color: gray;
   font-size: 14px;
+  font-weight: bold;
+  color: #ff0066;
+  text-shadow: 0 0 8px rgba(255,0,102,0.8);
 }
 </style>
 </head>
@@ -85,14 +87,15 @@ button:disabled {background:#555;cursor:not-allowed;}
 <div id="particles-js"></div>
 <div class="container" id="login-container">
   <img src="logo.png" alt="Logo" class="logo">
-  <h1>Gerador Sense</h1>
+  <h1>Gerador de sensi</h1>
   <p>By RD 🥋</p>
   <input type="text" id="key" placeholder="Digite sua Key">
   <button onclick="checkLogin()">Entrar</button>
+  <div class="creditos">⚡ Desenvolvido por RD 🥋</div>
 </div>
 
 <div class="container" id="steps-container" style="display:none;">
-  <h2>Conclua os 5 passos para liberar o download</h2>
+  <h2 id="steps-title">Conclua os 5 passos para continuar...</h2>
 
   <div id="step1" class="step">
     <p>1. Visite o Canal 1</p>
@@ -121,7 +124,7 @@ button:disabled {background:#555;cursor:not-allowed;}
   </div>
 
   <div id="download-section">
-    <p>Baixe o Painel:</p>
+    <p id="download-text">Baixe o Painel:</p>
     <a href="CLT.apk" download><button>📥 Download CLT.apk</button></a>
   </div>
 
@@ -130,17 +133,13 @@ button:disabled {background:#555;cursor:not-allowed;}
   </div>
 </div>
 
-<div class="creditos">
-  Desenvolvido por RD 🥋
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
 particlesJS("particles-js", {
   particles: {
     number: { value: 60 },
     size: { value: 3 },
-    move: { speed: 1 },
+    move: { speed: 2 },
     line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.3, width: 1 },
     color: { value: "#ffffff" }
   }
@@ -155,12 +154,16 @@ function checkLogin(){
 function showVIP(){
   document.getElementById("login-container").style.display="none";
   document.getElementById("steps-container").style.display="flex";
+  // Remove texto de passos e "Baixe o Painel:"
+  document.getElementById("steps-title").innerText = "✅ Acesso VIP Liberado!";
+  document.getElementById("download-text").style.display = "none";
   document.getElementById("download-section").style.display="block";
   document.getElementById("gerador-btn").style.display="block";
 }
 function showSteps(){
   document.getElementById("login-container").style.display="none";
   document.getElementById("steps-container").style.display="flex";
+  document.getElementById("steps-title").innerText = "Conclua os 5 passos para prosseguir...";
   document.getElementById("step1").style.display="block";
 }
 function completeStep(step,url){
